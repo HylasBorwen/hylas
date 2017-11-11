@@ -15,6 +15,7 @@ timezone:
 url: http://yoursite.com
 root: /
 permalink: :category/:title/
+#permalink: :category/:abbrlink/
 permalink_defaults:
 
 # Directory
@@ -91,3 +92,7 @@ leancloud_visitors:
   enable: true
   app_id: FS1TsKXjmT9qIsBDX4WAaRrF-gzGzoHsz
   app_key: blrbKfY61le6nNXHFT7pLK7t
+
+# add passage_end_tag
+passage_end_tag:
+  enabled: true
