@@ -209,8 +209,8 @@ excerpt_description: true
 # Automatically Excerpt. Not recommend.
 # Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
-  enable: true
-  length: 100
+  enable: false
+  length: 150
 
 # Post meta display settings
 post_meta:
@@ -223,10 +223,10 @@ post_meta:
 # Dependencies: https://github.com/willin/hexo-wordcount
 post_wordcount:
   item_text: true
-  wordcount: false
-  min2read: false
-  totalcount: false
-  separated_meta: true
+  wordcount: true
+  min2read: true
+  totalcount: true
+  separated_meta: false
 
 # Wechat Subscriber
 #wechat_subscriber:
@@ -358,7 +358,7 @@ disqus:
   count: true
 
 # Hypercomments
-#hypercomments_id:
+hypercomments_id: 97672
 
 # changyan
 changyan:

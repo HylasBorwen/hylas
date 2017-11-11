@@ -21,7 +21,5 @@
 		s.parentNode.insertBefore(hcc, s.nextSibling);
 		})();
 		</script>
-
 	{% endif %}
-
 {% endif %}
