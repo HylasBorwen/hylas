@@ -48,7 +48,7 @@ HTML文档结构，好比一个**美丽的姑娘**
 - 如何选择元素，并观察选中元素的当前状态，已经调整当前元素的状态
 - 下载网页相关内容
 - 使用chrome dev tools撰写前端代码，侦测元素的状态样式
-- chrome实用插件的安装（需要大家安装vpn，自行到谷歌下载对应的插件 以下是推荐插件列表）
+- chrome实用插件的安装（需要大家安装[vpn](http://ss.tqqvpn.com/)，自行到谷歌下载对应的插件 以下是推荐插件列表）
   - [Type Sample](https://chrome.google.com/webstore/detail/type-sample/jobccjjaffckfoggljonehppmldgmkmh?hl=zh-TW)
   - [Dimensions](https://chrome.google.com/webstore/detail/dimensions/baocaagndhipibgklemoalmkljaimfdj?hl=zh-TW)
   - [Pesticide for chrome](https://chrome.google.com/webstore/detail/pesticide-for-chrome/bblbgcheenepgnnajgfpiicnbbdmmooh?hl=zh-TW)
