@@ -21,10 +21,10 @@ date: 2017-11-15 16:38:29
 * 使用form标签定义
 
   ```html
-  <from action="Url" method="get">
+  <form action="Url" method="get">
         <p>用户名:<input type="text" name="username" /></p>
         <p>密码:<input type="text" name="password" /></p>
-  </from>
+  </form>
   ```
 
 
@@ -54,10 +54,10 @@ date: 2017-11-15 16:38:29
 <!--
 	checkbox(多选)
 		name 区别于不同选项 用于拼接到url
-		value 设置或返回单选按钮的名称
+		value 设置或返回单选按钮的内容
 	radio(单选)
 		name 相同name只能选择一个 用于拼接到url
-		value 设置或返回单选按钮的名称
+		value 设置或返回单选按钮的内容
 	checked 选中(写什么都可以选中 一般写true)
 -->
 
@@ -99,6 +99,7 @@ date: 2017-11-15 16:38:29
 #### select
 
 ```html
+<!-- size默认显示几个 -->
 <select name="size" size="3">
     <option value="1">s</option>
     <option value="2">m</option>
