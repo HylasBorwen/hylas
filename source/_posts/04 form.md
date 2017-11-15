@@ -1,8 +1,9 @@
 ---
 title: form
-date: 2017-11-15 16:38:29
 tags: HTML
 categories: 很高兴认识你
+abbrlink: 55499
+date: 2017-11-15 16:38:29
 ---
 
 ![表单](http://static.open-open.com/news/uploadImg/20140420/20140420182130_120.jpg)
