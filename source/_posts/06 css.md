@@ -321,7 +321,92 @@ p{text-indent: 2em;}
 
 
 
+## last
 
+最后给大家看一下字体与文本的结合，英文的排版样式布局。欣赏一下！
+
+```css
+@import url(http://fonts.googleapis.com/css?family=Pinyon+Script);
+*{margin: 0;padding: 0;}
+body{
+    font-family:"CrimsonRoman", georgia, times, serif;
+    background-color:#fff;
+    margin:100px 10% 0;
+}
+
+/* 设置h2的字体 文本*/
+h2{
+    font-size:18px;
+    line-height:24px;
+    font-weight:bold;
+    text-align:center;
+    font-variant:small-caps;
+    word-spacing:.5em;
+    letter-spacing:.6em;
+}
+
+/* 设置h1的字体 文本 */
+h1{
+    font-size: 60px;
+    line-height:96px;
+    font-family:"Pinyon Script", cursive;
+    margin:4px 0 -4px;
+    text-align:center;
+    font-weight:normal;
+}
+
+p {
+    font-size:18px;
+    line-height:24px;
+}
+
+/* 设置长引用的边距 */
+blockquote {margin:0px 20%;}
+
+/* 设置引用字体的样式 */
+q {
+    font-size:18px;
+    font-style:italic;
+    line-height:24px;
+}
+
+/* 首字母下沉 */
+h1 + p::first-letter {
+    font-family:times, serif;
+    font-size:90px;
+    float:left; line-height:.65;
+    padding:.085em 3px 0 0;
+}
+
+/* 修改第一行的文本 小型大写字母 */
+h1 + p::first-line {
+    font-variant:small-caps;
+    letter-spacing:.15em;
+}
+
+/*只缩进跟在段落后面的段落*/
+p + p {text-indent:14px;}
+/*引用内容前面的引号*/
+q::before {content:"\201C"}
+/*引用内容后面的引号*/
+q::after {content:"\201D"}
+```
+
+
+
+```html
+	<!-- q标签 文本两端插入引号 -->
+    <!-- blockquote标签 标记长引用 会给元素的前后添加边距 -->
+    <h2>an excerpt from</h2>
+    <h1>The Hound of the Baskervilles</h1>
+    <p>Holmes stretched out his hand for the manuscript and flattened it upon his knee. &ldquo;You will observe, Watson, the alternative use of the long s and the short. It is one of several indications which enabled me to fix the date.&rdquo; At the head was written: &ldquo;Baskerville Hall,&rdquo; and below in large, scrawling figures: &ldquo;1742.&rdquo;</p>
+    <p>&ldquo;It appears to be a statement of some sort.&rdquo;</p>
+    <p>&ldquo;Yes&mdash;it is a statement of a certain legend which runs in the Baskerville family.&rdquo;</p>
+    <blockquote>
+        <q>Of the origin of the Hound of the Baskervilles there have been many statements, yet as I come in a direct line from Hugo Baskerville, and as I had the story from my father&hellip;</q>
+    </blockquote>
+    <p>When Dr. Mortimer had finished reading this singular narrative he pushed his spectacles up on his forehead and stared across at Mr. Sherlock Holmes.</p>
+```
 
 
 
