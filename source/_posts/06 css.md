@@ -1,8 +1,9 @@
 ---
 title: 06 css
-date: 2017-11-18 19:14:49
 tags: HTML
 categories: 很高兴认识你
+abbrlink: 65362
+date: 2017-11-18 19:14:49
 ---
 
 ![font](http://htm5.oss-cn-beijing.aliyuncs.com/175576/1511003918466.jpg)
@@ -33,9 +34,9 @@ categories: 很高兴认识你
 
 
 
-### 字体属性
+## 字体属性
 
-#### font-family
+### font-family
 
 > 字体族
 
@@ -57,7 +58,7 @@ body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif；}
 
 
 
-#### font-size
+### font-size
 
 > 字体大小
 
@@ -124,7 +125,7 @@ example 3*
 
 
 
-#### font-style
+### font-style
 
 > 字体样式
 
@@ -137,7 +138,7 @@ example 3*
 
 
 
-#### font-weight
+### font-weight
 
 > 字体粗细
 
@@ -145,7 +146,7 @@ example 3*
 
 
 
-#### font-variant
+### font-variant
 
 > 字体变化
 
@@ -157,7 +158,7 @@ example 3*
 
 
 
-#### font
+### font
 
 > 简写，复合写法
 >
@@ -177,7 +178,7 @@ example 3*
 
 
 
-#### text-decoration
+### text-decoration
 
 > 文本装饰
 
@@ -192,7 +193,7 @@ example 3*
 
 
 
-#### text-transform
+### text-transform
 
 | 值          | 描述                              |
 | ---------- | ------------------------------- |
@@ -232,7 +233,7 @@ p{text-indent: 2em;}
 
 
 
-#### text-algin
+### text-algin
 
 > 文本对齐方式
 
@@ -245,7 +246,7 @@ p{text-indent: 2em;}
 
 
 
-#### letter-spacing
+### letter-spacing
 
 > 字符间距
 
@@ -253,13 +254,13 @@ p{text-indent: 2em;}
 
 
 
-#### word-spacing
+### word-spacing
 
 > 单词间距，亲啊一定要区分清楚啊。 Hi girl！我只能说很少用，毕竟我们不写英文。
 
 
 
-#### line-height
+### line-height
 
 > 行高，数字。
 >
@@ -299,7 +300,7 @@ p{text-indent: 2em;}
 
 
 
-#### vertical-align
+### vertical-align
 
 > 垂直对齐 以基线为参照上下移动文本，但是这个玩意只能影响行内元素
 >
