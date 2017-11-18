@@ -246,7 +246,7 @@ date: 2017-11-15 19:38:29
 
 ```html
 <!-- e:target -->
-<a hreg="#info">更多信息</a>
+<a href="#info">更多信息</a>
 <div id="info">
   <h2>More information</h2>
 </div>
