@@ -374,7 +374,8 @@ q {
 h1 + p::first-letter {
     font-family:times, serif;
     font-size:90px;
-    float:left; line-height:.65;
+    float:left; 
+  	line-height:.65;
     padding:.085em 3px 0 0;
 }
 
