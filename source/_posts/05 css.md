@@ -387,3 +387,47 @@ date: 2017-11-15 19:38:29
 
 
 
+> 探究一下padding与margin不同的值所体现的效果。
+
+*example*
+
+```css
+/* 四个方向 */
+.box{margin: 0;padding: 0;}
+
+/* 第一个10px代表上下 第二个10px代表左右 */
+.box{margin: 10px 10px;padding: 10px 10px;}
+
+/* 第一个10px代表上 第二个10代表左右 第三个10px代表下 */
+.box{margin: 10px 10px 10px;padding: 10px 10px 10px;}
+
+/* 第一个10px代表上 第二个10代表右 第三个10px代表下 第四个10px代表左 */
+.box{margin: 10px 10px 10px 10px;padding: 10px 10px 10px 10px;}
+```
+
+**Q&A** 
+
+* 外边距重合？margin有一个很奇怪的效果。
+
+  *example* 
+
+  ```html
+  <style type="text/css">
+    .box{width: 100px;height: 100px;background: red;margin: 10px 0px;}
+    .xq{width: 50px;height: 50px;background: blue;margin: 30px}
+  </style>
+  <body>
+    <div class="box"></div>
+    <div class="box"></div>
+    
+    <!-- 
+  	发现问题了吗？
+  	解决方法给父级元素添加overflow 或者 添加一个边框解除 
+    -->  
+    <div class="box">
+    	<div class="xq"></div>
+    </div>
+  </body>
+  ```
+
+  ​

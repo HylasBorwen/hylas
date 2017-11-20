@@ -104,7 +104,7 @@ body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif；}
 
 
 
-example 3*
+*example 3*
 
 ```html
 <style>
@@ -410,4 +410,40 @@ q::after {content:"\201D"}
 ```
 
 
+
+## Q&A
+
+```html
+<input type="button" value="按钮">
+<input type="button" value="按钮">
+<input type="button" value="按钮">
+
+<button>6</button>
+<button>6</button>
+<button>6</button>
+
+<div style="border: 1px solid #333;width:300px;">
+  <img src="url" width="300">
+</div>
+```
+
+> 发现问题了吗?  行内元素在换行显示之后回车被html解析了。
+
+```html
+<input type="button" value="按钮"
+><input type="button" value="按钮"
+><input type="button" value="按钮">
+
+<button>6</button><button>6</button><button>6</button>  
+
+<div style="font-size:0">
+  <button>6</button>
+  <button>6</button>
+  <button>6</button>
+</div>
+
+<div style="border: 1px solid #333;width:300px;font-size:0;">
+  <img src="url" width="300" style="display:block">
+</div>
+```
 
