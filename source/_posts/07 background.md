@@ -47,10 +47,14 @@ date: 2017-11-20 19:05:34
 
 控制背景重复的属性有四个值。*repeat*（默认） 、*repeat-x*、*repeat-y*、*no-repeat* 
 
+![repeat](/img/css/bg-repeat.png)
+
 默认重复，x方向重复，y方向重复，不重复。但是在使用的时候可能会碰到一些头疼的情况。比如容器尺寸和背景图片的个数恰好会让边界的背景显示的不全。CSS3提供了另外的两个属性`round`、`space`
 
 * round：确保图片不被剪切，调整图片的大小适应背景区域。
 * space：确保图片不被剪切，添加空白来使用背景区域。
+
+
 
 
 
@@ -80,9 +84,11 @@ CSS3规定的属性，用来控制背景图片的尺寸。
 ```
 
 * cover：拉伸，完全填满背景区，保持宽高比。
-* contain：缩放，恰好适应背景区，保持宽高比。
+* contain：缩放，**恰好**适应背景区，保持宽高比。
 * 50%：缩放，填充一半，保持宽高比。（给两个就不会保持了）
 * 500px 300px：宽度500px，高度300px。
+
+
 
 
 
@@ -90,7 +96,23 @@ CSS3规定的属性，用来控制背景图片的尺寸。
 
 > 背景位置
 
-控制背景图片的位置，css中提供了top、left、right、bottom、center属性。
+控制背景图片的位置，css中提供了top、left、right、bottom、center属性，当然也可以使用px去调整。雪碧图运用。
+
+可以去组合
+
+*example* 
+
+```css
+/* 需要注意的是 top right与right top 是没有区别的 */
+/* 只设置一个center代表水平，另一个方向会设置成center所以center center的组合和写一个center是一样的 */
+/* 100px 200px则是距离div左上角的位置 left 100px top 200px位置 */
+div{background-image: url(url);background-position: center;}
+div{background-image: url(url);background-position: top left;}
+div{background-image: url(url);background-position: right bottom;}
+div{background-image: url(url);background-position: 100px 200px;}
+```
+
+
 
 
 
@@ -106,5 +128,5 @@ CSS3规定的属性，用来控制背景图片的尺寸。
 
 > 简写
 
-1
+
 
