@@ -1,9 +1,10 @@
 ---
 title: background
-date: 2017-11-20 19:05:34
 tags: HTML
 categories: 很高兴认识你
 password: password
+abbrlink: 17546
+date: 2017-11-20 19:05:34
 ---
 
 ![background](http://www.wzsky.net/img2015/uploadimg/20150902/10060221.jpg)

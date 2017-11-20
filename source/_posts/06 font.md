@@ -54,8 +54,6 @@ font-family用于设定元素中的文本使用什么字体。通常给一个文
 body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif；}
 ```
 
-`tip`： 像Helvetica Neue中间有空格，记得加一个引号。
-
 
 
 ### font-size
@@ -198,7 +196,7 @@ body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif；}
 | 值          | 描述                              |
 | ---------- | ------------------------------- |
 | none       | 默认。定义带有小写字母和大写字母的标准的文本。         |
-| capitalize | 文本中的每个单词以大写字母开头。                |
+| capitalize | 文本中的每个单词以大写字母开头。（仅针对首字母）        |
 | uppercase  | 定义仅有大写字母。                       |
 | lowercase  | 定义无大写字母，仅有小写字母。                 |
 | inherit    | 规定应该从父元素继承 text-transform 属性的值。 |
@@ -289,7 +287,9 @@ p{text-indent: 2em;}
   	通常我们不会这样子写，因为会设置字体的大小，如果是浏览器默认的值当然可以这样子写。
   */
   /*
-  	css中行高平均分布在一行文本的上下。这里字体的默认大小是16px，line-height为2那么就是32px,多出来的	16px怎么会在文本的上下各填充8px。但是这样子好像有点... 直接line-height: 32px多好费劲 ⊙︿⊙.
+  	css中行高平均分布在一行文本的上下。
+  	这里字体的默认大小是16px，line-height为2那么就是32px,多出来的	
+  	16px怎么会在文本的上下各填充8px。但是这样子好像有点... 直接line-height: 32px多好费劲 ⊙︿⊙.
   */
   .p{width: 200px;height: 32px;text-align: center;line-height: 2;border: 1px solid red;}
 </style>
@@ -396,17 +396,17 @@ q::after {content:"\201D"}
 
 
 ```html
-	<!-- q标签 文本两端插入引号 -->
-    <!-- blockquote标签 标记长引用 会给元素的前后添加边距 -->
-    <h2>an excerpt from</h2>
-    <h1>The Hound of the Baskervilles</h1>
-    <p>Holmes stretched out his hand for the manuscript and flattened it upon his knee. &ldquo;You will observe, Watson, the alternative use of the long s and the short. It is one of several indications which enabled me to fix the date.&rdquo; At the head was written: &ldquo;Baskerville Hall,&rdquo; and below in large, scrawling figures: &ldquo;1742.&rdquo;</p>
-    <p>&ldquo;It appears to be a statement of some sort.&rdquo;</p>
-    <p>&ldquo;Yes&mdash;it is a statement of a certain legend which runs in the Baskerville family.&rdquo;</p>
-    <blockquote>
-        <q>Of the origin of the Hound of the Baskervilles there have been many statements, yet as I come in a direct line from Hugo Baskerville, and as I had the story from my father&hellip;</q>
-    </blockquote>
-    <p>When Dr. Mortimer had finished reading this singular narrative he pushed his spectacles up on his forehead and stared across at Mr. Sherlock Holmes.</p>
+<!-- q标签 文本两端插入引号 -->
+<!-- blockquote标签 标记长引用 会给元素的前后添加边距 -->
+<h2>an excerpt from</h2>
+<h1>The Hound of the Baskervilles</h1>
+<p>Holmes stretched out his hand for the manuscript and flattened it upon his knee. &ldquo;You will observe, Watson, the alternative use of the long s and the short. It is one of several indications which enabled me to fix the date.&rdquo; At the head was written: &ldquo;Baskerville Hall,&rdquo; and below in large, scrawling figures: &ldquo;1742.&rdquo;</p>
+<p>&ldquo;It appears to be a statement of some sort.&rdquo;</p>
+<p>&ldquo;Yes&mdash;it is a statement of a certain legend which runs in the Baskerville family.&rdquo;</p>
+<blockquote>
+  <q>Of the origin of the Hound of the Baskervilles there have been many statements, yet as I come in a direct line from Hugo Baskerville, and as I had the story from my father&hellip;</q>
+</blockquote>
+<p>When Dr. Mortimer had finished reading this singular narrative he pushed his spectacles up on his forehead and stared across at Mr. Sherlock Holmes.</p>
 ```
 
 
