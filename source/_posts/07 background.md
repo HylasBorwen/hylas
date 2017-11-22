@@ -141,7 +141,7 @@ div{background-image: url(url);background-position: 100px 200px;}
   }
   
   /* 相当于 */
-  body{background: url(src) center #fff no-repeat cover fixed;}
+  background: color  url(src)  no-repeat  fixed center / cover ;
 </style>
 <body>
   
