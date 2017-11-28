@@ -1,12 +1,13 @@
 ---
 title: position
-date: 2017-11-28 23:51:23
 tags: HTML
 categories: 很高兴认识你
-password：password
+password: password
+abbrlink: 55465
+date: 2017-11-28 23:51:23
 ---
 
-![position](http://tupian.aladd.net/2013/11/2187.jpg)
+![position](http://htm5.oss-cn-beijing.aliyuncs.com/175576/1511886634890.jpg)
 
 <!-- more -->
 
