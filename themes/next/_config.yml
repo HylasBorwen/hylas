@@ -103,9 +103,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+# scheme: Muse
 # scheme: Mist
-# scheme: Pisces
+scheme: Pisces
 # scheme: Gemini
 
 
@@ -573,9 +573,9 @@ baidu_push: false
 # API Documentation:
 # https://developers.google.com/google-apps/calendar/v3/reference/events/list
 calendar:
-  enable: false
-  calendar_id: <required>
-  api_key: <required>
+  enable: true
+  calendar_id: 642105968503-3s9ivkgo4skoipdencd48t0sc58kuol6.apps.googleusercontent.com
+  api_key: AIzaSyBcTlmKFRE2pKJ8emGPP3tHzbYI1Kf9tLw
   orderBy: startTime
   offsetMax: 24
   offsetMin: 4
@@ -695,7 +695,7 @@ canvas_nest: false
 three_waves: false
 
 # canvas_lines
-canvas_lines: true
+canvas_lines: false
 
 # canvas_sphere
 canvas_sphere: false
