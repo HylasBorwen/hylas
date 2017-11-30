@@ -1,9 +1,9 @@
 ---
 title: flex
-date: 2017-11-30 17:36:36
 tags: flex
 categories: 很高兴认识你
-password: flex
+abbrlink: 59381
+date: 2017-11-30 17:36:36
 ---
 
 ![flex](http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071321.png)
@@ -40,8 +40,8 @@ password: flex
 
 - 子元素的flex属性：`flex` 属性是 `flex-grow`， `flex-shrink`  和  `flex-basis` 的简写，默认值为`0 1 auto`。后两个属性可选。
   1. flex-grow		定义项目的放大比例
-  2. flex-shrink	定义项目的缩小比例
-  3. flex-basis         定义了在分配多余空间之前，浏览器根据这个属性，计算主轴是否有多余空间 默认auto
+    2. flex-shrink定义项目的缩小比例
+  2. flex-basis         定义了在分配多余空间之前，浏览器根据这个属性，计算主轴是否有多余空间 默认auto
 
 `tip`： 在基准值之内grow分配之外之外多余的部分按照grow的比例分配，超出的量按照shrink比例收缩并且basis失效。
 
