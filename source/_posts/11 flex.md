@@ -1,9 +1,9 @@
 ---
 title: flex
 date: 2017-11-30 17:36:36
-tags: CSS
+tags: flex
 categories: 很高兴认识你
-password: 123321
+password: flex
 ---
 
 ![flex](http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071321.png)
@@ -21,20 +21,27 @@ password: 123321
 
 - 容器的属性
 
-```
-flex-direction	(排列方向)				   row | row-reverse | column | column-reverse;
-flex-wrap		(默认排列在一行,有三个值)	 nowrap | wrap | wrap-reverse;
-justify-content (在主轴上的对齐方式)          flex-start|flex-end|center|space-between|space-around;
-align-items     (交叉轴上如何对齐)          flex-start | flex-end | center
-```
+  1. flex-direction 
 
-- 子元素的flex属性:`flex`属性是`flex-grow`, `flex-shrink` 和 `flex-basis`的简写，默认值为`0 1 auto`。后两个属性可选。
+     排列方向	row | row-reverse | column | column-reverse
 
-```
-flex-grow	属性定义项目的放大比例
-flex-shrink	属性定义了项目的缩小比例
-flex-basis	属性定义了在分配多余空间之前,浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto
-```
+  2. flex-wrap
 
-1. basis 基准值 在基准值之内grow分配 之外 多余的分配按grow比例分配
-2. 超出按照 不够的量收缩 basis失效 看shrink
+     nowrap | wrap | wrap-reverse
+
+  3. justify-content
+
+     主轴对齐方式	flex-start | flex-end | center | space-between | space-around
+
+  4. align-items
+
+     交叉轴对齐方式	flex-start | flex-end | center | baseline | stretch
+
+
+- 子元素的flex属性：`flex` 属性是 `flex-grow`， `flex-shrink`  和  `flex-basis` 的简写，默认值为`0 1 auto`。后两个属性可选。
+  1. flex-grow		定义项目的放大比例
+  2. flex-shrink	定义项目的缩小比例
+  3. flex-basis         定义了在分配多余空间之前，浏览器根据这个属性，计算主轴是否有多余空间 默认auto
+
+`tip`： 在基准值之内grow分配之外之外多余的部分按照grow的比例分配，超出的量按照shrink比例收缩并且basis失效。
+
