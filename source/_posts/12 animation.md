@@ -1,8 +1,9 @@
 ---
 title: animation
-date: 2017-12-01 14:22:16
 tags: CSS3
 categories: 很高兴认识你
+abbrlink: 46345
+date: 2017-12-01 14:22:16
 ---
 
 ![animation](http://www.alonely.com.cn/d/file/Html-CSS/2016-09-27/git1csitzbk.jpg)
@@ -104,7 +105,7 @@ categories: 很高兴认识你
   height: 90px;
   transition: all 1s ease-out;
 }
-#heart:before, #heart:after {
+#heart::before, #heart::after {
   position: absolute;
   content: "";
   left: 50px;
@@ -120,7 +121,7 @@ categories: 很高兴认识你
 #heart:hover{transform: scale(1.2);}
 ```
 
-这个例子看到了一个新的属性 `transform-origin` 可以用来控制元素的旋转基点。x轴、y轴两个方向，可以使用top、left、right、bottom、%来设定基点位置。`0 50%` 等价于 `left bottom` 依次类推。
+这个例子看到了一个新的属性 `transform-origin` 可以用来控制元素的旋转基点。x轴、y轴两个方向，可以使用top、left、right、bottom、%来设定基点位置。除了百分数其它的四个都是位置。设定一个就是对应的边的中点
 
 
 
@@ -183,6 +184,44 @@ categories: 很高兴认识你
   <div class="view">
     <div class="eye"></div>
   </div>
+</body>
+```
+
+
+
+## 3D
+
+两个属性
+
+* perspective: 800
+* transform-style: preserve-3d;
+
+景深的大小决定的是元素距离你的视距的长短
+
+*example*  翻书demo 
+
+```html
+<style>
+  .list{width: 400px;height: 200px;background-color: white;margin: 100px auto;position: relative;-webkit-perspective: 800;transform-style: preserve-3d;transform: rotateX(30deg);}
+  .list li{position: absolute;width: 200px;height: 195px;top: 2px;background: white;left: 200px; transform-origin: left;text-align: center;line-height: 195px;}
+  .list li:nth-child(1){
+    animation: move 3s linear infinite;
+  }
+
+  .list li:nth-child(2){
+    animation: move 3s linear 1.5s infinite;
+  }
+
+  @keyframes move{
+    from{ transform: rotateY(0deg);}
+    to{ transform: rotateY(-180deg);}
+  }
+</style>
+<body>
+  <ul class="list">
+    <li>我爱你</li>
+    <li>么么哒</li>
+  </ul>
 </body>
 ```
 
