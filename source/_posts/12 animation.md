@@ -27,7 +27,7 @@ date: 2017-12-01 14:22:16
 
 指定了 **transform** 的元素会立即发生改变，需要配合 **transition** 一起来使用，用transition属性为transform变化指定属性、持续时间、运动曲线、 延迟时间。添加了必要的动画参数才是一个完整的动画，否则单独的transform不会有动画效果。
 
-> transition: \<property\> \<duration\> \<timing-function\> \<delay\>;
+> transition: < property > < duration > < timing-function > < delay >;
 
 `tip`：transition与transform不同的地方在于前者可以改变非几何属性，即transform无法变化的属性。
 
