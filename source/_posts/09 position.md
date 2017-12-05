@@ -1,7 +1,7 @@
 ---
 title: position
-tags: HTML
-categories: 很高兴认识你
+tags: css
+categories: CSS
 abbrlink: 55465
 date: 2017-11-28 23:51:23
 ---

@@ -1,7 +1,7 @@
 ---
 title: background
-tags: HTML
-categories: 很高兴认识你
+tags: css
+categories: CSS
 abbrlink: 17546
 date: 2017-11-20 19:05:34
 ---

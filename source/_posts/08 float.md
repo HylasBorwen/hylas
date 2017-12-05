@@ -1,7 +1,7 @@
 ---
 title: float
-tags: HTML
-categories: 很高兴认识你
+tags: css
+categories: CSS
 abbrlink: 61964
 date: 2017-11-22 23:17:09
 ---
