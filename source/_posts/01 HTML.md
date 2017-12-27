@@ -1,7 +1,7 @@
 ---
 title: 认识HTML
 tags: HTML+CSS
-categories: 很高兴认识你
+categories: HTML
 abbrlink: 51829
 date: 2017-11-10 17:06:57
 ---
