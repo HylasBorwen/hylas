@@ -201,9 +201,7 @@ body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif；}
 | lowercase  | 定义无大写字母，仅有小写字母。                 |
 | inherit    | 规定应该从父元素继承 text-transform 属性的值。 |
 
-
-
-#### text-indent
+### text-indent
 
 > 文本缩进，设置文本的起点，一般我们进行首行缩进。
 
