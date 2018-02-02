@@ -4,7 +4,6 @@ tags: layout
 categories: CSS
 abbrlink: 21184
 date: 2017-12-02 23:14:04
-password: 123123123
 ---
 
 ![layout](https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-375080.jpg)
@@ -342,69 +341,6 @@ password: 123123123
   .outer{display: flex;justify-content: center;align-items: center;}
 */
 ```
-
-
-
-### 补充
-
-定位还有一种粘性定位 *sticky* ( relative+fixed )，在一定阈值下是 `relative` 超过了变成 `fixed` 。当然是有兼容性。通过这个属性在不考虑兼容的情况下可以实现很多效果。
-
-```html
-<style>
-  .wrap{width: 400px;height: 300px;margin: 30px auto;overflow: auto}
-  dl {
-    margin: 0;
-    padding: 10px 0 0 0;
-  }
-
-  dt {
-    background: #B8C1C8;
-    border-bottom: 1px solid #989EA4;
-    border-top: 1px solid #717D85;
-    color: #FFF;
-    font: bold 18px/21px sans-serif;
-    margin: 0;
-    padding: 2px 0 0 12px;
-    position: -webkit-sticky;
-    position: sticky;
-    top: -1px;
-  }
-
-  dd {
-    font: bold 20px/45px sans-serif;
-    margin: 0;
-    padding: 0 0 0 12px;
-    white-space: nowrap;
-    border-top: 1px solid #CCC
-  }
-</style>
-<body>
-  <div class="wrap">
-    <dl>
-      <dt>A</dt>
-      <dd>Andrew W.K.</dd>
-      <dd>Apparat</dd>
-      <dd>Arcade Fire</dd>
-      <dd>At The Drive-In</dd>
-      <dd>Aziz Ansari</dd>
-    </dl>
-    <dl>
-      <dt>C</dt>
-      <dd>Chromeo</dd>
-      <dd>Common</dd>
-      <dd>Converge</dd>
-      <dd>Crystal Castles</dd>
-      <dd>Cursive</dd>
-    </dl>
-    <dl>
-      <dt>E</dt>
-      <dd>Explosions In The Sky</dd>
-    </dl>
-  </div>
-</body>
-```
-
-> 测试一下就明白了，多说无益。
 
 
 

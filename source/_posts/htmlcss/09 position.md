@@ -4,7 +4,6 @@ tags: css
 categories: CSS
 abbrlink: 55465
 date: 2017-11-28 23:51:23
-password: 123123123
 ---
 
 ![position](http://htm5.oss-cn-beijing.aliyuncs.com/175576/1511886634890.jpg)
@@ -27,6 +26,7 @@ password: 123123123
 - absolute，生成绝对定位的元素，**相对于距该元素最近的已定位的祖先元素**进行定位。此元素的位置可通过 “left”、”top”、”right” 以及 “bottom” 属性来规定。
 - relative，生成相对定位的元素，**相对于该元素在文档中的初始位置进行定位**。通过 “left”、”top”、”right” 以及 “bottom” 属性来设置此元素相对于自身位置的偏移。
 - fixed，生成绝对定位的元素。默认情况下，可定位于**相对于浏览器窗口**的指定坐标。元素的位置通过 “left”, “top”, “right” 以及 “bottom” 属性进行规定。不论窗口滚动与否，元素都会留在那个位置。
+- sticky, 粘性定位(relative+fixed)。在一定阈值下是 `relative` 超过了变成 `fixed` 。
 
 **不管是哪种定位，都必须有一个参照物。找对了参照物，就成功了一半。**
 
@@ -78,6 +78,69 @@ password: 123123123
 *fixed* 给定的元素，定位上下文始终是浏览器窗口，不会随着body的移动而改变位置（这里讲错了，上课的时候说的是body，但是仔细想一下如果是相对与body的话，那么body在滚动的时候肯定也会发生位置的改变，注意一下）。
 
 一般需要固定在页面上的元素，不会随着页面的滚动而发生偏移的元素，请使用 *fixed* 定位。
+
+
+
+## 粘性定位
+
+*example*
+
+```html
+<style>
+  .wrap{width: 400px;height: 300px;margin: 30px auto;overflow: auto}
+  dl {
+    margin: 0;
+    padding: 10px 0 0 0;
+  }
+
+  dt {
+    background: #B8C1C8;
+    border-bottom: 1px solid #989EA4;
+    border-top: 1px solid #717D85;
+    color: #FFF;
+    font: bold 18px/21px sans-serif;
+    margin: 0;
+    padding: 2px 0 0 12px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+  }
+
+  dd {
+    font: bold 20px/45px sans-serif;
+    margin: 0;
+    padding: 0 0 0 12px;
+    white-space: nowrap;
+    border-top: 1px solid #CCC
+  }
+</style>
+<body>
+  <div class="wrap">
+    <dl>
+      <dt>A</dt>
+      <dd>Andrew W.K.</dd>
+      <dd>Apparat</dd>
+      <dd>Arcade Fire</dd>
+      <dd>At The Drive-In</dd>
+      <dd>Aziz Ansari</dd>
+    </dl>
+    <dl>
+      <dt>C</dt>
+      <dd>Chromeo</dd>
+      <dd>Common</dd>
+      <dd>Converge</dd>
+      <dd>Crystal Castles</dd>
+      <dd>Cursive</dd>
+    </dl>
+    <dl>
+      <dt>E</dt>
+      <dd>Explosions In The Sky</dd>
+    </dl>
+  </div>
+</body>
+```
+
+测试下就明白了
 
 
 
@@ -185,7 +248,7 @@ password: 123123123
 
 `tip`：定位元素具有z-index默认值auto，但是auto不会是元素成为层叠上下文。设定数值之后定位元素就会成为层叠上下文，inner此时在outer中就是遵循层叠顺序来排列，outer即变成了盛放内容的容器了。inner设定的z-index只是会影响outer内部的层叠水平。不会影响影响与outer之间的层叠顺序。
 
-*example3* ：最后一点就不举例子了。当有互相嵌套的时候并且父级也有z-index值的时候，层叠顺序的比较止步于父级的层叠顺序（父级在其层叠上下中的排列顺序）。
+*example3* ：最后一点就不举例子了。当有互相嵌套的时候并且父级也有z-index值的时候，层叠顺序的比较止步于父级的层叠上下文（父级在其层叠上下中的排列顺序）。
 
 
 
@@ -193,7 +256,7 @@ password: 123123123
 
 1. 定位元素默认具有z-index：auto（可以看成0）。
 2. z-index：auto不会创建定位上下文。
-3. z-index层叠顺序的比较止步与父级层叠顺序。
+3. z-index层叠顺序的比较止步与父级层叠上下文。
 
 
 

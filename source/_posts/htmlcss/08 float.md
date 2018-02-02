@@ -4,7 +4,6 @@ tags: css
 categories: CSS
 abbrlink: 61964
 date: 2017-11-22 23:17:09
-password: 123123123
 ---
 
 ![float](/img/css/float.png)
@@ -52,10 +51,10 @@ password: 123123123
     <span>3</span>
   </div>
   
-  <!-- html解析的回城是一个空字符 本质是&nbsp; span浮动之后，空字符去哪里了。最后面 -->
+  <!-- html解析的回车是一个空字符 本质是&nbsp; span浮动之后，空字符去哪里了。最后面 -->
   <!-- 那么其实就是文字环绕的效果 -->
   <div class="example2">
-    <span>1</span>&nbsp;<span>2</span>&nbsp;<span>3</span>  
+    <span>1</span>&nbsp;<span>2</span>&nbsp;<span>3</span> 
   </div>
 </body>
 ```
@@ -69,6 +68,8 @@ password: 123123123
 * 分列布局
 * 导航栏、商品列表等等
 * 注意点：浮动的时候可能会被高度不一的元素挡住，注意调整元素的高度到合适的位置，已经父元素的空间是否足够。请记住能用浮动办到的事情请不要使用定位，因为不利于页面的后期维护，迫不得已才去使用定位。
+
+
 
 
 
