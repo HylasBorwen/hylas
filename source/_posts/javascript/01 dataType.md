@@ -43,7 +43,7 @@ console.log(typeof bar); 	// object 返回object
 // undefined是变量未初始化 null是一个空对象 但是undefined == null js在判断 "等值" 操作的时候会返回true 尽管有这样子的关系 但是它们两的使用差别很大
 ```
 
-`ps` : typeof 并不是一个绝对安全的判断数据类型的方式 后边学习其它数据类型的准确方式
+`ps` : typeof 并不是一个绝对安全的判断数据类型的方式 后边学习其它数据类型的准确方式。例如精确的判断数组、日期等等。
 
 
 
