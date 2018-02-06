@@ -1,8 +1,9 @@
 ---
 title: 控制语句
-date: 2018-02-05 15:56:01
 tags: js
 categories: Javascript
+abbrlink: 15838
+date: 2018-02-05 15:56:01
 ---
 
 ![control](/img/javascript/Control.jpg)
