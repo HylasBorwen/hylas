@@ -20,29 +20,6 @@ date: 2018-01-04 20:09:44
 
 
 
-## 算术运算符
-
-*javascript* 中的算术运算符和大都数语言一样 这里只强调一点。算术运算符引起的一些问题
-
-```js
-console.log(10 + "10" + 10);
-console.log(10 + 10 + "10");
-// 两条语句会得到不同的答案 因为 “+” 在这个地方做为了拼接 虽然结果变成了string字符串 但是在过程中转换的地方不一样
-
-console.log(10 * "10");
-console.log(10 / "10");
-console.log(10 % "10");
-// 都没有出问题 “* / %” 发生了隐式转换
-
-console.log(10 + +"10" + 10);
-// 看似很不正常的一个语句 结果可能有点差异 其实很容易想明白 typeof +"10" 结果为number 
-// 所以上边其实可以写成 10 + (+"10") + 10 这里的加号有将字符数字隐式转换成了number 同理 “-” 也一样
-```
-
-
-
-
-
 ## 关系运算符
 
 js的关系操作符需要 **注意** 几个点 
@@ -96,16 +73,7 @@ undefined与null, 两个都表示**无**, 转成数值undefined为NaN, null为0 
 
 null与0直接判断==操作时返回false, 惊不惊喜意不意外, null的数据类型是object, **如果比较的是对象, 则调用valueOf()方法或者toLocaleString()方法返回的结果去比较**, 但是null很特殊没有这些方法, null做为原型链的尽头,所以null == 0不会做特殊处理 返回false. null >= 0比较时这个问题在ECMA规定中>,=存在运算优先级的问题被分为了两部分,需要注意的是并不是>和=判断的结合,这里只是当 null >= 0判断是会转换成Number(null) >= 0, 记住就好.
 
-在关系判断中会存在很多的数据类型的转化, 抓住本质才好哟. 
-
-```js
-console.log(1 + 1 + "1"); 	// 111
-console.log(1 + + "1" + 1); // 3
-// 相当于
-console.log(1 + (+"1") + 1); // 会被隐式转换成number
-```
-
-
+在关系判断中会存在很多的数据类型的转化, 抓住本质才好哟. 这个稍后再看
 
 
 
@@ -241,4 +209,53 @@ console.log(~~8.5); // 8
 ```
 
 
+
+## convert
+
+> 数据类型与运算符之间还有一个问题就是类型之间的转换问题，特别是js中的隐式类型转换
+
+*强制类型转换*
+
+```js
+/*
+  字符数字,布尔值转数字类型
+  Number parseInt parseFloat
+  parseInt(num, radix)
+  radix代表进制
+*/
+console.log(Number("123"));
+console.log(parseInt("123.2"));
+console.log(parseFloat("123.2"));
+console.log(parseInt("123+"));
+console.log(parseFloat("123.1+"));
+console.log(Number(true), parseInt(false), parseFloat(true));
+
+/*
+  其它数据类型转成字符串
+*/
+var num = 10;
+console.log(num.toString());
+var bool = true;
+console.log(bool.toString());
+```
+
+ 
+
+*javascript* 中的算术运算符引起的一些问题
+
+```js
+console.log(10 + "10" + 10);
+console.log(10 + 10 + "10");
+// 两条语句会得到不同的答案 因为 “+” 在这个地方做为了拼接 虽然结果变成了string字符串 但是在过程中转换的地方不一样
+
+console.log(10 * "10");
+console.log(10 / "10");
+console.log(10 % "10");
+// 都没有出问题 “* / %” 发生了隐式转换
+
+console.log(10 + +"10" + 10);
+console.log(1 + 1 + "1");
+// 看似很不正常的一个语句 结果可能有点差异 其实很容易想明白 typeof +"10" 结果为number 
+// 所以上边其实可以写成 10 + (+"10") + 10 这里的加号有将字符数字隐式转换成了number 同理 “-” 也一样
+```
 
