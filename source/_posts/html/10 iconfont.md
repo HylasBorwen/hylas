@@ -1,7 +1,7 @@
 ---
 title: 阿里图标
-tags: HTML+CSS
-categories: HTML
+tags: icon
+categories: html
 abbrlink: 10583
 date: 2017-11-30 15:16:07
 thumbnail: img/css/ali-icon.png

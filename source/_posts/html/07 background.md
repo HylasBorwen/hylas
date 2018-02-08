@@ -1,7 +1,7 @@
 ---
 title: background
 tags: css
-categories: CSS
+categories: css
 abbrlink: 17546
 date: 2017-11-20 19:05:34
 thumbnail: http://www.wzsky.net/img2015/uploadimg/20150902/10060221.jpg

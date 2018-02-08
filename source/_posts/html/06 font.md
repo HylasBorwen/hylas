@@ -1,7 +1,7 @@
 ---
 title: font
 tags: css
-categories: CSS
+categories: css
 abbrlink: 65362
 date: 2017-11-18 19:14:49
 thumbnail: http://htm5.oss-cn-beijing.aliyuncs.com/175576/1511003918466.jpg

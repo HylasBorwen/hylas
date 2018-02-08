@@ -1,7 +1,7 @@
 ---
 title: layout
 tags: layout
-categories: CSS
+categories: css
 abbrlink: 21179
 date: 2017-12-05 23:36:07
 thumbnail: http://img-cdn2.luoo.net/pics/vol/52c14db094079.jpg!/fwfh/640x452

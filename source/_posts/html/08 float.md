@@ -1,7 +1,7 @@
 ---
 title: float
 tags: css
-categories: CSS
+categories: css
 abbrlink: 61964
 date: 2017-11-22 23:17:09
 thumbnail: img/css/float.png

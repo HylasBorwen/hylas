@@ -1,7 +1,7 @@
 ---
 title: 认识css
-tags: HTML+CSS
-categories: CSS
+tags: css
+categories: css
 abbrlink: 35262
 date: 2017-11-15 19:38:29
 thumbnail: https://udemy-images.udemy.com/course/750x422/792484_cc98_3.jpg
