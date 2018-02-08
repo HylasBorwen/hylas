@@ -119,14 +119,14 @@ page_404:
 
 # https://github.com/imsun/gitment#customize
 gitment:
-  enable: true
-  github_id: 'zBorwen'
-  repository_name: 'zBorwen.github.io'
+  enable: false
+  github_id: #'zBorwen'
+  repository_name: #'zBorwen.github.io'
 
   # client_id & secret will generated after register an OAuth App
   # reference: https://github.com/settings/applications/new
-  client_id: 'ba27d25dda4b2ff9b52a'
-  client_secret: '8d99bd04f12b566da1d56350ca7b5b3565f41f08'
+  client_id: #'ba27d25dda4b2ff9b52a'
+  client_secret: #'8d99bd04f12b566da1d56350ca7b5b3565f41f08'
   per_page: 8 # comments per page
   max_comment_height: 250 # default 250px
 
