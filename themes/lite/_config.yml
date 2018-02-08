@@ -120,8 +120,8 @@ page_404:
 # https://github.com/imsun/gitment#customize
 gitment:
   enable: true
-  github_id: zBorwen # your github id
-  repository_name: zBorwen.github.io # your repository name
+  github_id: zBorwen
+  repository_name: zBorwen.github.io
 
   # client_id & secret will generated after register an OAuth App
   # reference: https://github.com/settings/applications/new
