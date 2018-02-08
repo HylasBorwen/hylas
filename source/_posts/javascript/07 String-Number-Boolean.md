@@ -1,8 +1,9 @@
 ---
 title: String Number Boolean
-date: 2018-02-08 14:27:55
 tags: js
 categories: Javascript
+abbrlink: 45359
+date: 2018-02-08 14:27:55
 ---
 
 ![packageClass](/img/javascript/package-class.jpg)
