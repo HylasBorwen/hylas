@@ -4,9 +4,10 @@ tags: HTML+CSS
 categories: HTML
 abbrlink: 10583
 date: 2017-11-30 15:16:07
+thumbnail: img/css/ali-icon.png
 ---
 
-![阿里图标](/img/css/ali-icon.png)
+<!-- ![阿里图标](/img/css/ali-icon.png)-->
 
 <!-- more -->
 
