@@ -121,7 +121,7 @@ page_404:
 gitment:
   enable: true
   github_id: zBorwen
-  repository_name: zBorwen.github.io
+  repository_name: blog-comments
 
   # client_id & secret will generated after register an OAuth App
   # reference: https://github.com/settings/applications/new
