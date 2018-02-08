@@ -4,9 +4,10 @@ tags: css
 categories: CSS
 abbrlink: 55465
 date: 2017-11-28 23:51:23
+thumbnail: http://htm5.oss-cn-beijing.aliyuncs.com/175576/1511886634890.jpg
 ---
 
-![position](http://htm5.oss-cn-beijing.aliyuncs.com/175576/1511886634890.jpg)
+<!-- ![position](http://htm5.oss-cn-beijing.aliyuncs.com/175576/1511886634890.jpg)-->
 
 <!-- more -->
 

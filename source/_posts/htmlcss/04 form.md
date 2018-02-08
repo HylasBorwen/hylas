@@ -4,9 +4,10 @@ tags: HTML+CSS
 categories: HTML
 abbrlink: 55499
 date: 2017-11-15 16:38:29
+thumbnail: http://static.open-open.com/news/uploadImg/20140420/20140420182130_120.jpg
 ---
 
-![表单](http://static.open-open.com/news/uploadImg/20140420/20140420182130_120.jpg)
+<!-- ![表单](http://static.open-open.com/news/uploadImg/20140420/20140420182130_120.jpg)-->
 
 <!-- more -->
 

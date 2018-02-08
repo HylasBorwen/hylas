@@ -4,9 +4,10 @@ tags: js
 categories: Javascript
 abbrlink: 45833
 date: 2018-02-06 16:29:26
+thumbnail: img/javascript/function.jpg
 ---
 
-![function](/img/javascript/function.jpg)
+<!--![function](/img/javascript/function.jpg)-->
 
 <!-- more -->
 

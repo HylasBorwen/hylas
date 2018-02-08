@@ -4,9 +4,10 @@ tags: js
 categories: Javascript
 abbrlink: 45359
 date: 2018-02-08 14:27:55
+thumbnail: img/javascript/package-class.jpg
 ---
 
-![packageClass](/img/javascript/package-class.jpg)
+<!--![packageClass](/img/javascript/package-class.jpg)-->
 
 <!-- more -->
 

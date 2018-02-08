@@ -4,9 +4,10 @@ tags: js
 categories: Javascript
 abbrlink: 63470
 date: 2018-01-04 20:09:44
+thumbnail: img/javascript/Operators.jpg
 ---
 
-![Operators](/img/javascript/Operators.jpg)
+<!--![Operators](/img/javascript/Operators.jpg)-->
 
 <!--more-->
 

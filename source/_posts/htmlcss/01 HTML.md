@@ -4,9 +4,10 @@ tags: HTML+CSS
 categories: HTML
 abbrlink: 51829
 date: 2017-11-10 17:06:57
+thumbnail: https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-439017.png
 ---
 
-![html](https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-439017.png)
+<!-- ![html](https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-439017.png) -->
 
 <!-- more -->
 

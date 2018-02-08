@@ -4,9 +4,10 @@ tags: CSS3
 categories: CSS
 abbrlink: 46345
 date: 2017-12-01 14:22:16
+thumbnail: http://www.alonely.com.cn/d/file/Html-CSS/2016-09-27/git1csitzbk.jpg
 ---
 
-![animation](http://www.alonely.com.cn/d/file/Html-CSS/2016-09-27/git1csitzbk.jpg)
+<!-- ![animation](http://www.alonely.com.cn/d/file/Html-CSS/2016-09-27/git1csitzbk.jpg)-->
 
 <!-- more -->
 

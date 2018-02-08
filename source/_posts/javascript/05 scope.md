@@ -4,9 +4,10 @@ tags: js
 categories: Javascript
 abbrlink: 31182
 date: 2018-02-07 14:40:35
+thumbnail: img/javascript/scope.jpg
 ---
 
-![scope](/img/javascript/scope.jpg)
+<!--![scope](/img/javascript/scope.jpg)-->
 
 <!-- more -->
 

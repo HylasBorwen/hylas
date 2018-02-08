@@ -4,9 +4,10 @@ tags: layout
 categories: CSS
 abbrlink: 21184
 date: 2017-12-02 23:14:04
+thumbnail: https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-375080.jpg
 ---
 
-![layout](https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-375080.jpg)
+<!-- ![layout](https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-375080.jpg)-->
 
 <!-- more -->
 
