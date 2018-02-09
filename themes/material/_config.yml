@@ -7,7 +7,7 @@ head:
     favicon: "/img/logoQ.png"
     high_res_favicon: "/img/logoQ.png"
     apple_touch_icon: "/img/logoQ.png"
-    keywords:
+    keywords: '谦虚的卓越着 ~'
     site_verification:
         google:
         baidu:
@@ -120,14 +120,14 @@ toc:
 
 # SNS Menu
 sns:
-    email: youremail@email.com
-    facebook: "https://www.facebook.com/facebook"
-    twitter: "https://twitter.com/twitter"
+    email:
+    facebook: #"https://www.facebook.com/facebook"
+    twitter: #"https://twitter.com/twitter"
     googleplus: "https://www.google.com/"
-    weibo:
+    weibo: "https://weibo.com"
     instagram:
     tumblr:
-    github:
+    github: "https://github.com"
     linkedin:
     zhihu:
     bilibili:
@@ -135,12 +135,12 @@ sns:
 
 # SNS Share Switch
 sns_share:
-    twitter: true
-    facebook: true
-    googleplus: true
+    twitter: false
+    facebook: false
+    googleplus: false
     weibo: true
     linkedin: false
-    qq: false
+    qq: true
     telegram: false
 
 # Sidebar Customize
@@ -192,12 +192,29 @@ materialcdn:
 # Available value of "use":
 #     disqus | disqus_click | changyan | 163gentie
 comment:
-    use:
+    use: valine
     shortname: # duoshuo or disqus shortname
     changyan_appid:
     changyan_conf:
     changyan_thread_key_type: path
-    gentie_productKey:
+    livere_data_uid:
+    gitment_repo:   # git repo of the hexo
+    gitment_owner:  # git repo's owner
+    gitment_client_id:  # github app client id
+    gitment_client_secret :  # github app client secret
+    valine_leancloud_appId: 4YlmlSXNbKXzK8Vun44DtVnM-gzGzoHsz
+    valine_leancloud_appKey: JVKEXtrImCDE1lQuXY16xk1e
+    valine_notify: true # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
+    valine_verify: true # valine verify code (true/false)
+    valine_pageSize: 10 # comment list page size
+    valine_avatar: identicon # gravatar style https://valine.js.org/#/avatar
+    valine_lang: zh-cn # i18n
+    valine_placeholder: '嘿……we go' # valine comment input placeholder(like: Please leave your footprints )
+    valine_guest_info: nick,mail,link #valine comment header info
+    gitalk_repo: # git repo of the hexo
+    gitalk_owner: # git repo's owner
+    gitalk_client_id: # github app client id
+    gitalk_client_secret: # github app client secret
 
 # Search Systems
 # Available value:
@@ -205,6 +222,7 @@ comment:
 search:
     use: google
     swiftype_key:
+
 
 # Analytics Systems
 # Available value:
@@ -215,9 +233,9 @@ analytics:
 
 # Leancloud Views
 leancloud:
-    enable: false
-    app_id: #你的 app_id
-    app_key: #你的 app_key
+    enable: true
+    app_id: l8WGuspt3KwjnR8MRd9OD7cB-gzGzoHsz
+    app_key: EKLio9rLppwFqQDtawi78vLN
     av_core_mini: "https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"
 
 # Busuanzi 不蒜子 Views
@@ -226,3 +244,31 @@ busuanzi:
     all_site_uv: false
     post_pv: false
     busuanzi_pure_mini_js: "https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"
+
+# Files Vendors
+# Set a CDN for the files src you want to customize. The url should with protocol.
+# Default(empty) will load the files from the origin server.
+vendors:
+# MaterialCDN
+#   You can load theme unique files from your private cdn or oss.
+#   The new src will have the base domain you configured below.
+#   For example
+#       materialcdn: https://cdn.jsdelivr.net/npm/hexo-material@1.4.0/source
+    materialcdn:
+
+# Third party library
+#   You can load these files from public cdn.
+#   For example
+#       jquery: https://cdn.bootcss.com/jquery/2.2.1/jquery.js
+    # jQuery 2.2.0
+    jquery:
+    # nprogress 0.2.0
+    nprogress:
+    # FontAwesome 4.5.0
+    fontawesome:
+    # MathJax 2.7.0-2.7.1
+    mathjax:
+    # Prettify r298 (only prettify.js)
+    prettify:
+    # Material Icons 3.0.1
+    material_icons:
