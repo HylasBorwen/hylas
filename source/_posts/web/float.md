@@ -4,11 +4,10 @@ tags: float
 categories: html&css
 abbrlink: 61964
 date: 2017-11-22 23:17:09
+thumbnail: /img/css/float.png
 ---
 
-![float](/img/css/float.png)
 
-<!-- more -->
 
 
 
@@ -16,7 +15,7 @@ date: 2017-11-22 23:17:09
 
 > 让人又爱又恨的~浮动
 
-
+<!-- more -->
 
 ## float history
 

@@ -6,7 +6,7 @@ tags:
 categories: Javascript
 abbrlink: 10115
 date: 2018-02-07 16:36:52
-thumbnail: img/javascript/callBack.jpg
+thumbnail: /img/javascript/callBack.jpg
 ---
 
 <!--![callBack](/img/javascript/callBack.jpg)-->
