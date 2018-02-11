@@ -100,3 +100,7 @@ leancloud_visitors:
 passage_end_tag:
   enabled: true
 
+search:
+  path: search.xml
+  field: post
+
