@@ -7,8 +7,6 @@ date: 2018-02-07 14:40:35
 thumbnail: /img/javascript/scope.jpg
 ---
 
-<!--![scope](/img/javascript/scope.jpg)-->
-
 <!-- more -->
 
 > Javascript的执行环境（ *execution context* 执行上下文）依赖于浏览器，每一个变量，函数都会有自己的执行环境，在web浏览器中执行环境 *window* 对象。即全局创建的变量函数都做为 *window* 对象的属性和方法。需要强调的是 *function* 也是一个独立的执行环境。程序执行依次进入 *call stack* 进栈执行，执行到函数进入函数内部执行上下文，也就是进入执行环境会创建变量对象的作用域链（ *scope chain* ）按这种机制有序的访问所有的变量与函数。所以学习 *Javascript* 执行机制是非常必要的。

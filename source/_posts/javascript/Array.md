@@ -78,12 +78,13 @@ console.log(arr.length);// 5 使用索引也可以增加数组的长度
 | some()         | 对数组的每一项执行指定函数，如果每一项都返回true则返回该数组 |
 | reduce()       | 迭代方法                                                     |
 | fill()         | 用一个固定值填充一个数组中从起始索引到终止索引内的全部元素   |
+| entries()      | 返回一个迭代器                                               |
 
 *ps*
 
 数组中一些方法会改变原有数组的排列
 
-> push、unshift、pop、shift、splice、sort、reverse
+> push、unshift、pop、shift、splice、sort、reverse、fill
 
 会返回的一个数组或者期望值的方法
 
