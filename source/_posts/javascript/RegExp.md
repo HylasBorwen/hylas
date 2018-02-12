@@ -41,7 +41,7 @@ JavaScript中正则表达式使用包含两个方面字符方法与正则方法�
 
 ## 元字符
 
-元字符也可以称为转义字符，正则表达式中常用的几个元字符
+元字符某些其实就是转义字符，正则表达式中常用的几个元字符
 
 | 字符 | 含义             |
 | ---- | ---------------- |
@@ -52,6 +52,9 @@ JavaScript中正则表达式使用包含两个方面字符方法与正则方法�
 | \s   | 空格             |
 | \S   | 非空格           |
 | \b   | 单词边界         |
+| \B   | 非单词边界       |
+| ^    | 以xx开头         |
+| $    | 以xx结尾         |
 
 ```js
 var pattern = /\d/;
@@ -66,11 +69,20 @@ console.log('this is a box'.replace(pattern, 'IS')); // this IS a box
 
 ## 字符集
 
-字符集用来指定某一些符合特性的字符，用 `[]` 来表示
+字符集用来指定某一些符合特性的字符，用 `[]` 来表示可以是单个字符或者是一个范围 例如\[abc\] \[0-9\] 
 
 ```js
-var pattern = /[0-9a-zA-Z_]/;        // 与\w意思相同
+var pattern = /[0-9a-zA-Z_]/g;        // 与\w意思相同
 console.log(pattern.test('*'));      // false
-console.log('--abc--'.replace(pattern, 'X')); // true
+console.log('--abc--'.replace(pattern, 'X')); // --XXX--
 ```
+
+取反 字符集中使用 `^` 代表非的意思
+
+```js
+var pattern = /[^abc]/g;
+console.log('abc123'.replace(pattern, 'X')); // XXX123
+```
+
+js的正则中 `.` 也代表一个范围和上边的元字符一样代表一个范围 写成字符集可以是 `[^\r\n]` ，`\d` 可以写成 `[0-9]` 。
 
