@@ -86,3 +86,132 @@ console.log('abc123'.replace(pattern, 'X')); // XXX123
 
 js的正则中 `.` 也代表一个范围和上边的元字符一样代表一个范围 写成字符集可以是 `[^\r\n]` ，`\d` 可以写成 `[0-9]` 。
 
+
+
+## 量词
+
+用来判断字符重复出现
+
+| 字符  | 描述                           |
+| ----- | ------------------------------ |
+| ?     | 出现零次或者一次(最多一次)     |
+| +     | 出现一次或者多次(最少出现一次) |
+| *     | 出现零次或者多次               |
+| {n}   | 出现n次                        |
+| {n,m} | 出现n到m次                     |
+| {n,}  | 最少出现n次                    |
+
+```js
+var pattern = /\d{3}/;
+var str = "123";
+console.log(pattern.test(str)); // true
+```
+
+
+
+*贪婪模式*
+
+在满足匹配条件的情况下尽可能的多的去匹配
+
+```js
+var pattern = /\d{2,5}/g;
+var str = "123456";
+console.log(str.replace(pattern, 'x')); // x6
+
+var pattern = /\d{2,5}/;
+var str = "123456";
+console.log(str.replace(pattern, 'x')); // x6
+
+var pattern = /\d{2,5}/;
+var str = "123456";
+console.log(str.match(pattern));  // ["12345", index: 0, input: "123456"]
+```
+
+
+
+*非贪婪模式*
+
+在满足条件的情况下尽可能少的去匹配
+
+```js
+var pattern = /\d{2,5}?/g;
+var str = "123456";
+console.log(str.replace(pattern, 'x')); // xxx
+
+var pattern = /\d{2,5}?/;
+var str = "123456";
+console.log(str.replace(pattern, 'x')); // x3456
+
+var pattern = /\d{2,5}?/;
+var str = "123456";
+console.log(str.match(pattern));  // ["12", index: 0, input: "123456"]
+```
+
+
+
+## 子集
+
+子集也是分组，在正则表达式中分组是一个重要的功能
+
+```js
+var pattern = /box{2}/;
+var str = "boxx";
+console.log(pattern，test(str)); // true  box{2}匹配的是x出现两次 不是box两次
+
+var pattern = /(box){2}/;
+var str = /boxbox/;
+console.log(pattern.test(str)); // true
+```
+
+*捕获性分组*
+
+```js
+var str = "2018-2-13";
+var pattern = /(2018)-(2)-(13)/;
+console.log(str.match(pattern)); // ["2018-2-13", "2018", "2", "13", index: 0, input: "2018-2-13"]
+console.log(pattern.exec(str));  // ["2018-2-13", "2018", "2", "13", index: 0, input: "2018-2-13"]
+```
+
+`match` 与 `exec` 返回一个数组，匹配成功，返回的数组第一项是匹配成功的字符串，其余项为 *分组项* 即 *子集* 
+
+
+
+非捕获性分组*
+
+```js
+var pattern = /(?:a)(b)(c)/;
+var str = "abc";
+console.log(str.match(pattern)); // ["abc", "b", "c", index: 0, input: "abc"]
+```
+
+`?:` 这个分组将不会被返回。为了整体的匹配只返回需要的
+
+
+
+*前瞻模式*
+
+```js
+var str = 'google';    
+var pattern = /goo(?=gle)/;
+console.log(patter.test(str));  // true
+console.log(pattern.exec(str)); // ["goo", index: 0, input: "google"]
+```
+
+*goo* 后边必须跟的是 *gle* 。同样捕获返回分组内容，只会返回匹配成功的字符
+
+
+
+*负向前瞻*
+
+```js
+var str = "ab123";
+var pattern = /a(?![a-zA-Z])/g;
+console.log(str.replace(pattern, "X")); // aX123
+
+var str = "a123*7vv";
+var pattern = /\w(?!\d)/g;
+console.log(str.replace(pattern, 'X')); // a12X*XXX
+```
+
+
+
