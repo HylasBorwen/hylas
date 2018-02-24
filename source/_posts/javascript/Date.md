@@ -30,7 +30,7 @@ var date = new Date(Date.parse("2018,02,09"));
 // Fri Feb 09 2018 00:00:00 GMT+0800
 var date = new Date(Date.UTC(2018,02,09));
 // Fri Mar 09 2018 08:00:00 GMT+0800
-// 可以发现两个日期的月份不一样 UTC格式中传入的月份 0-11 parse月份 1-12
+// 可以发现两个日期的月份不一样 UTC格式中传入的月份 0-11 parse月份 1-12 时间差了8个小时
 ```
 
 
@@ -60,3 +60,4 @@ var date = new Date(Date.UTC(2018,02,09));
 | getTime()           | 返回 1970 年 1 月 1 日至今的毫秒数。            |
 | getTimezoneOffset() | 返回本地时间与格林威治标准时间 (GMT) 的分钟差。 |
 
+*tip* : Date.now() 可以获取当前的毫秒。IE不支持
