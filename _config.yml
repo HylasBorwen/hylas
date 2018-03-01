@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://hylasborwen.cn/
+url: http://yoursite.com
 root: /
 permalink: :category/:title/
 #permalink: :category/:abbrlink/
@@ -40,8 +40,8 @@ post_asset_folder: false # 建立与文章名相同的文件夹
 relative_link: false
 future: true
 highlight:
-  enable: false
-  line_number: false
+  enable: true
+  line_number: true
   auto_detect: false
   tab_replace:
 
@@ -74,15 +74,13 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: next
-theme: material
-# theme: lite
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:zBorwen/zBorwen.github.io.git
+  repo: https://github.com/HylasBorwen/Hylas.git
   branch: master
 
 admin:
@@ -99,8 +97,3 @@ leancloud_visitors:
 # add passage_end_tag
 passage_end_tag:
   enabled: true
-
-search:
-  path: search.xml
-  field: post
-
