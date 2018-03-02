@@ -80,7 +80,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/HylasBorwen/Hylas.git
+  repo: git@github.com:zBorwen/zBorwen.github.io.git
   branch: master
 
 admin:
