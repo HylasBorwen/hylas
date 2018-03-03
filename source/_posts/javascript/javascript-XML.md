@@ -1,8 +1,11 @@
 ---
-layout: post/javascript
 title: javascript XML
-date: 2018-03-03 19:12:53
-tags: [XML, DOM]
+tags:
+  - XML
+  - DOM
+categories: XML
+abbrlink: 24945
+date: 2018-03-03 23:26:29
 ---
 
 XML曾经做为存储和通过网络传输结构化数据的标准。微型的结构化的数据库，保存一些小型数据。从这里边可以看到 *web* 的发展 *DOM* 的发展。DOM的出现使得浏览器都内置了对 *XML* 的支持。
@@ -25,7 +28,7 @@ MSXML2.DOMDocument      仅针对IE5.5之前的版本
 
 采取向下兼容的方式写兼容。
 
-```js
+```JS
 function createXmlDom() {
 	var version = [
         'MSXML2.DOMDocument.6.0',
@@ -194,7 +197,7 @@ function parseXML(xml){
 };
 ```
 
-序列化 *XML* 
+序列化 *XML*
 
 ```js
 function serializeXML(xmlDom) {
