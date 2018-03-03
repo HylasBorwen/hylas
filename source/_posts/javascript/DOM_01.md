@@ -24,7 +24,7 @@ categories: DOM
 
 **Geoko渲染过程**
 
-![Geoko](http://pic002.cnblogs.com/images/2011/265173/2011110316270146.jpg)
+![Geoko](/img/javascript/dom/Geoko.jpg)
 
 
 
@@ -161,7 +161,7 @@ DOM（文档对象模型）是针对xml经过扩展用于html的应用程序编�
 
   DOM1级主要定义了HTML和XML文档的底层结构。在DOM1中，DOM由两个模块组成：DOM Core（DOM核心）和DOM HTML。其中，DOM Core规定了基于XML的文档结构标准，通过这个标准简化了对文档中任意部分的访问和操作。DOM HTML则在DOM核心的基础上加以扩展，添加了针对HTML的对象和方法，如：JavaScript中的Document对象.
 
-  ![](https://segmentfault.com/img/remote/1460000008944602?w=690&h=379)
+  ![](/img/javascript/dom/dom_1.jpg)
 
 - DOM2
 
@@ -172,11 +172,11 @@ DOM（文档对象模型）是针对xml经过扩展用于html的应用程序编�
   3. DOM样式（DOM Style）：定义了基于CSS为元素应用样式的接口
   4. DOM遍历和范围（DOM Traversal and Range）：定义了遍历和操作文档树的接口
 
-  ![](https://segmentfault.com/img/remote/1460000008944603?w=690&h=525)
+  ![](/img/javascript/dom/dom_2.jpg)
 
   百度百科完整DOM2标准
 
-  ![](https://segmentfault.com/img/remote/1460000008944604?w=640&h=440)
+  ![](/img/javascript/dom/dom_22.jpg)
 
 
 - DOM3
@@ -189,13 +189,13 @@ DOM（文档对象模型）是针对xml经过扩展用于html的应用程序编�
   2. DOM验证模块（DOM Validation）：定义了验证文档的方法
   3. DOM核心的扩展（DOM Style）：支持XML 1.0规范，涉及XML Infoset、XPath和XML Base
 
-  ![](https://segmentfault.com/img/remote/1460000008944605?w=690&h=464)
+  ![](/img/javascript/dom/dom_3.jpg)
 
 #### 8. 认识DOM
 
 DOM可以将任何HTML描绘成一个由多层节点构成的结构。节点分为12种不同类型，每种类型分别表示文档中不同的信息及标记。每个节点都拥有各自的特点、数据和方法，也与其他节点存在某种关系。节点之间的关系构成了层次，而所有页面标记则表现为一个以特定节点为根节点的树形结构。
 
-![](https://segmentfault.com/img/remote/1460000008944606?w=558&h=345)
+![](/img/javascript/dom/dom_tree1.jpg)
 
 ```html
 <!DOCTYPE html>
@@ -218,7 +218,7 @@ DOM可以将任何HTML描绘成一个由多层节点构成的结构。节点分�
 
 将HTML代码分解成DOM节点层次
 
-![](https://segmentfault.com/img/remote/1460000008944607?w=483&h=279)
+![](/img/javascript/dom/dom_tree.jpg)
 
 
 
@@ -226,7 +226,7 @@ DOM可以将任何HTML描绘成一个由多层节点构成的结构。节点分�
 
   > 我们说DOM文档对象模型是从文档中抽象出来的，DOM操作的对象也是文档，因此我们有必要了解一下文档的类型。文档随着历史的发展演变为多种类型，如下:
 
-  ![](https://segmentfault.com/img/remote/1460000008944608?w=690&h=134)
+  ![](/img/javascript/dom/dom_his.jpg)
 
   ​
 
@@ -234,9 +234,7 @@ DOM可以将任何HTML描绘成一个由多层节点构成的结构。节点分�
 
   > DOM1级定义了一个Node接口，这个Node接口在javascript中是作为Node类型来实现的。除了IE以外，其他所有浏览器都可以访问这个类型。每个节点都有一个nodeType属性，用于表明节点的类型。节点类型通过定义数值常量和字符常量两种方式来表示，IE只支持数值常量。节点类型一共有12种，这里介绍常用的7种类型。如下图：
 
-  ![](https://segmentfault.com/img/remote/1460000008944609?w=622&h=254)
-
-  ​
+  ![](/img/javascript/dom/dom_type.jpg)
 
   1. #### Element(元素节点)
 
@@ -300,7 +298,7 @@ DOM可以将任何HTML描绘成一个由多层节点构成的结构。节点分�
 
   总结:
 
-  ![](https://segmentfault.com/img/remote/1460000008944610?w=690&h=331)
+  ![](/img/javascript/dom/nodeType.jpg)
 
   ​
 
@@ -312,13 +310,11 @@ DOM可以将任何HTML描绘成一个由多层节点构成的结构。节点分�
 
 > 浏览器渲染要做的事情就是把css、html、图片等静态资源显示到用户的面前
 
-![](https://segmentfault.com/img/remote/1460000008944611?w=690&h=197)
+![](/img/javascript/dom/load.jpg)
 
 > 渲染引擎首先通过网络获得所请求文档的内容，通常以8k分块的方法来完成：
 
-![](https://segmentfault.com/img/remote/1460000008944612?w=690&h=257)
-
-
+![](/img/javascript/dom/render.jpg)
 
 > 上图就是html渲染的基本过程，但这并不包含解析过程中浏览器加载外部资源，比如图片、脚本、iframe等的一些过程。说白了，**上面的4步仅仅是html结构的渲染过程**。而外部资源的加载在html结构的渲染过程中是贯彻始终的，即便绘制DOM节点已经完成，而外部资源仍然可能正在加载或者尚未加载。
 

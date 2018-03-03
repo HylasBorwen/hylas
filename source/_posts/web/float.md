@@ -7,15 +7,13 @@ date: 2017-11-22 23:17:09
 thumbnail: /img/css/float.png
 ---
 
+![](/img/css/float.png)
 
-
-
+<!-- more -->
 
 # float
 
 > 让人又爱又恨的~浮动
-
-<!-- more -->
 
 ## float history
 

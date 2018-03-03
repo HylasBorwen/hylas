@@ -22,7 +22,7 @@ DOM将 *HTML* 与 *XML* 文档绘制成由一个 **根节点** 发散出来的�
 
 DOM1级定义了一个 *Node* 接口，将DOM中的所有节点类型实现，在JavaScript中做为 *Node* 类。（IE中访问不到，IE使用COM对象去实现的）。所有的节点都继承自 *Node* 类 。打开浏览器可以在开发工具中看到一个列表
 
-![node](/img/javascript/node.png)
+![node](/img/javascript/dom/node.png)
 
 每一种节点都有一个 `nodeType` 属性表明节点的类型，这个值用数字表示。常见有
 
@@ -44,7 +44,7 @@ DOM1级定义了一个 *Node* 接口，将DOM中的所有节点类型实现，�
 
 节点与节点之间存在一定的联系，例如 *html* 可以看成是 *body* 的父级，*body* 中的标签就都是 *body* 的子孙。所以每一个节点都有一个 `childNodes` 属性
 
-![node_attr](/img/javascript/node_attr.png)
+![node_attr](/img/javascript/dom/node_attr.png)
 
 列举一下常见的节点关系属性
 
@@ -105,10 +105,14 @@ function firstChild(el){
     }else{
         var f = el.firstChild;
         // 直到找到nodeType是1的停止
-        while(f && f.nodeType != 1){
+        if(f && f.nodeType != 1){
             // f = f.nextSibling;
             f = next(f);
         }
+        
+        // while(f && f.nodeType != 1){
+        //     f = f.nextSibling;
+        // }
         return f;
     }
 }
@@ -119,8 +123,7 @@ function lastChild(el){
     }else{
         var l = el.lastChild;
         // 直到找到nodeType是1的停止
-        while(l && l.nodeType != 1){
-            // l = l.previousSibling;
+        if(l && l.nodeType != 1){
             l = prev(l);
         }
         return l;
@@ -310,3 +313,41 @@ document.documentElement 返回文档对象
 document.documentElement.scrollTop/Left 获取滚动条
 
 document.documentElement.clientWidth/clientHeight 获取窗口大小 兼容
+
+
+
+### 关于节点的样式
+
+*style* 属性用来操作节点的 *css* 样式 *className* 属性用来获取节点的类名
+
+*style* 获取的是行内样式，同样设置的也是行内样式
+
+```js
+el.style.color = 'red';
+el.style.marginLeft = '100px';
+```
+
+*cssText* 属性可以一次性写入多个css样式，连字符的样式需要转为驼峰
+
+```js
+el.style.cssText += 'width:100px;height:100px;backgroundColor:red';
+```
+
+这里用了 `+=` 因为cssText会覆盖原有的样式，这样子为了保存原有的,如果相同被覆盖。
+
+问题来了怎么获取行间样式？
+
+```js
+function getStyle(el, attr){
+ 	return el.currentStyle? el.currentStyle[attr] : window.getComputedStyle(el, null)[attr];
+}
+```
+
+*currentStyle* 针对IE *getComputedStyle* 针对非IE
+
+后者还可以获取伪元素，如果要获取伪元素（after，before）第二个参数为伪元素。
+
+getComputedStyle(el, 'after')  getComputedStyle(el, 'before')
+
+上边的关于元素的大小位置的获取与 *getStyle* 获取的区别在于前者会取整不会取到小数，两者都没有px单位。所以使用的过程中如果需要小数则选取后者。
+
