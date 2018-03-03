@@ -1,7 +1,7 @@
 ---
 layout: post/javascript
 title: javascript XML
-date: 2018-03-02 19:12:53
+date: 2018-03-03 19:12:53
 tags: [XML, DOM]
 ---
 

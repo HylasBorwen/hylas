@@ -1,8 +1,9 @@
 ---
 title: DOM 节点操作
-date: 2018-03-03 22:27:55
 tags: DOM
 categories: DOM
+abbrlink: 52358
+date: 2018-03-03 22:27:55
 ---
 
 ### DOM 操作 - cold
