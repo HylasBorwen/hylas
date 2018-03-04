@@ -146,7 +146,7 @@ init();
 
   scrollIntoView：让当前的元素滚动到浏览器窗口的可视区域内。
 
-- 参数 （$boolean$ | $object$）
+- ​参数 （*boolean*  |  *object*）
 
   boolean
 
@@ -197,9 +197,9 @@ down.addEventListener('click',function(){
 
   用来将不在浏览器窗口的可见区域内的元素滚动到浏览器窗口的可见区域。 如果该元素已经在浏览器窗口的可见区域内，则不会发生滚动。 此方法是标准的 Element.scrollIntoView() 方法的专有变体。
 
-  $PS$：MDN官方说一个说明 这个是非标注的一个方法。其中有些小问题
+  *PS*：MDN官方说一个说明 这个是非标注的一个方法。其中有些小问题
 
-- 参数 （$booean$）
+- 参数 （*booean*）
 
   true   则元素将在其所在滚动区的可视区域中居中对齐。
 
@@ -211,7 +211,7 @@ down.addEventListener('click',function(){
 
   不是全部可见或者全部不可见的情况下，调用scrollIntoViewIfNeeded时，无论参数是`true` 还是`false` ，都会发生滚动而且效果是滚动到元素与可视区域顶部或底部对齐，元素离哪端更近，往那边靠。
 
-  $PS$：scrollIntoViewIfNeeded 完全不可见的情况下 元素距离那边近 `true`，`false` 效果都一样就近原则
+  *PS*：scrollIntoViewIfNeeded 完全不可见的情况下 元素距离那边近 `true`，`false` 效果都一样就近原则
 
   移动端，以及原生的使用页面滚动的时候采用jQuery动画操作，现在的原生API都这么好用。当然如果不考虑兼容问题（IE 移动端的UC浏览器不支持）这个是不错的选择
 
@@ -233,15 +233,15 @@ var wrap = document.getElementById("wrap");
 var up = document.getElementById("up");
 var down = document.getElementById("down");
 up.addEventListener('click',function(){
-	wrap.scrollIntoView(true);
+    wrap.scrollIntoView(true);
 });
 
 center.addEventListener('click',function(){
-	wrap.scrollIntoViewIfNeeded(true);
+    wrap.scrollIntoViewIfNeeded(true);
 });
 
 down.addEventListener('click',function(){
-	wrap.scrollIntoViewIfNeeded(false);
+    wrap.scrollIntoViewIfNeeded(false);
 });
 ```
 
