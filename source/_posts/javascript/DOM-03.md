@@ -176,8 +176,6 @@ function removeClass(ele, name){
 
 以上仅仅是做一个参考，希望大家可以学以致用。不同的思路。实际中课以使用，只是做的不健壮，如果想要更加的完善可以做一些判断。
 
-
-
 ### 创建节点,属性
 
 - document.createElement(eName);　　
@@ -208,8 +206,6 @@ var cDiv = document.createElement("p");
 var cSpan = document.createElement("span");
 cDiv.append(cSpan, "span文本");
 ```
-
-
 
 ### 设置节点标签属性,类名
 

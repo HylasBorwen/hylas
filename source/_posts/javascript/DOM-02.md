@@ -296,26 +296,6 @@ function offsetxq(el,parent,position){
 };
 ```
 
-
-
-### 关于document的属性
-
-document.all 非标准
-
-document.title
-
-document.body 返回body
-
-document.compatMode
-
-document.documentElement 返回文档对象
-
-document.documentElement.scrollTop/Left 获取滚动条
-
-document.documentElement.clientWidth/clientHeight 获取窗口大小 兼容
-
-
-
 ### 关于节点的样式
 
 *style* 属性用来操作节点的 *css* 样式 *className* 属性用来获取节点的类名
@@ -343,11 +323,70 @@ function getStyle(el, attr){
 }
 ```
 
-*currentStyle* 针对IE *getComputedStyle* 针对非IE
+*currentStyle* 针对IE *getComputedStyle* 针对非IE。后者还可以获取伪元素，如果要获取伪元素（after，before）第二个参数为伪元素。getComputedStyle(el, 'after')  getComputedStyle(el, 'before')
 
-后者还可以获取伪元素，如果要获取伪元素（after，before）第二个参数为伪元素。
+*PS*：上边的关于元素的大小位置的获取与 *getStyle* 获取的区别在于前者会取整不会取到小数，两者都没有px单位。所以使用的过程中如果需要小数则选取后者。
 
-getComputedStyle(el, 'after')  getComputedStyle(el, 'before')
+*API* 中有一个方法也是可以获取的 `getBoundingClientRect` 这个方法返回了6个属性
 
-上边的关于元素的大小位置的获取与 *getStyle* 获取的区别在于前者会取整不会取到小数，两者都没有px单位。所以使用的过程中如果需要小数则选取后者。
+```js
+var bound = Element.getBoundingClientRect()
+bound.width / bound.height / bound.top / bound.left / bound.right / bound.bottom
+```
 
+top属性获取的是 Element距离当前窗口的距离而非绝对距离，可以写一个更加完美的获取元素绝对位置的方法
+
+```js
+var getOffsetPosition=function(elem){
+    if ( !elem ) return {left:0, top:0};
+    var top = 0, left = 0;
+    if ( "getBoundingClientRect" in document.documentElement ){
+        var box = elem.getBoundingClientRect(),
+            doc = elem.ownerDocument,
+            body = doc.body,
+            docElem = doc.documentElement,
+            // clientTop 获取元素顶部边框的宽度
+            clientTop = docElem.clientTop || body.clientTop || 0,
+            clientLeft = docElem.clientLeft || body.clientLeft || 0,
+            top  = box.top  + (self.pageYOffset || docElem && docElem.scrollTop  || body.scrollTop ) - clientTop,
+            left = box.left + (self.pageXOffset || docElem && docElem.scrollLeft || body.scrollLeft) - clientLeft;
+    }else{
+        do{
+            top += elem.offsetTop || 0;
+            left += elem.offsetLeft || 0;
+            elem = elem.offsetParent;
+        } while (elem);
+    }
+    return {left:left, top:top};
+}
+```
+
+`getBoundingClientRect` 在做图片惰性加载的时候就显得很容易了,这里就写一下判断时候需要显示的函数
+
+```js
+// 只考虑向下滚动加载
+// 如果图片出现在小于等于可视窗口300的位置时候就应该让该图片显示 
+function isInSight(el) {
+  const bound = el.getBoundingClientRect();
+  const clientHeight = window.innerHeight;
+  return bound.top <= clientHeight - 300;
+}
+```
+
+
+
+### 关于document的属性
+
+document.all 非标准
+
+document.title
+
+document.body 返回body
+
+document.compatMode
+
+document.documentElement 返回文档对象
+
+document.documentElement.scrollTop/Left 获取滚动条
+
+document.documentElement.clientWidth/clientHeight 获取窗口大小 兼容 window.innerWidth/innerHeight
