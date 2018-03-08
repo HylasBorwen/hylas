@@ -1,8 +1,11 @@
 ---
 title: setInterval setTimeout（一）
-date: 2018-03-06 16:45:54
-tags: [BOM,js]
+tags:
+  - BOM
+  - js
 categories: BOM
+abbrlink: 28450
+date: 2018-03-06 16:45:54
 ---
 
 ## js中的定时器
@@ -42,6 +45,7 @@ window.onload = function(){
 function fn(a, b){ console.log(a, b) };
 setTimeout("fn(1, 2)", 1000);  // 不推荐 eval
 setTimeout(fn, 1000, 1, 2);    // IE9-不支持第一种语法中向延迟函数传递额外参数的功能
+setTimeout(function(num){console.log(num)}, 1000, 10);
 ```
 
 **this**
