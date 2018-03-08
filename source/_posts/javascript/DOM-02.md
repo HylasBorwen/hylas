@@ -270,7 +270,7 @@ var domUtils = {
 
 * offsetWidth/Height = width/height + padding + border + scrollbar 
 * clientWidth/Height = width/height + padding
-* scrollWidth/Height = width/height + padding + border + 溢出
+* scrollWidth/Height = width/height + padding + 溢出
 
 元素位置
 

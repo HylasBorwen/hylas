@@ -180,8 +180,11 @@ function removeClass(ele, name){
 
 - document.createElement(eName);　　
 - document.createAttribute(attrName); 
-- document.createTextNode(text);　
+- document.createTextNode(text);
+- document.createDocumentFragment();
 
+
+在所有节点中，文档片段没有对应的标记。是一个轻量级的文档，可以包含和控制节点，但不会像完整的文档那样占用资源，可以理解成为一个容器。当要大量添加节点时如果频繁的添加节点，可能会让页面回流重绘所以在添加的时候可以先放到这个空壳中然后一次性放入所需的地方。
 
 
 ### 添加节点
@@ -267,4 +270,59 @@ function dataAttr(ele, key, value){
     }
 }
 ```
+
+*PS*：需要注意一点 `data-*` 设置一个属性，如果想设置的属性为 `data-a-b` 时，使用驼峰才会生效。element.dataset["a-b"]时非法的不被允许的。
+
+说到标签属性就要提到一个属性 `attributes` 返回一个 `NameNodeMap` 动态集合。包含了每一个 `attr` 
+
+```html
+<div id="box" class="a" title="123" name="xx"></div>
+<script>
+	var attrs = box.attributes;
+    // 获取属性
+    var title = attrs.getNamedItem("title");
+    // 设置属性
+    var haha = document.createAttribute("haha");
+    haha.nodeValue="haha";
+    attrs.setNamedItem(haha);
+    // 删除属性
+    attrs.removeNamedItem("haha");
+    // 返回指定位置的属性
+    attrs.item(0) 		// id="box"
+</script>
+```
+
+可以写一个方法用来遍历元素的标签属性
+
+```js
+function printAttr(el){
+    var attrs = el.attributes,
+        len = attrs.length,
+        arr = Array(len);
+    for(var i=0;i<len;i++){
+        var item = attrs.item(i);
+        arr[i] = item.nodeName + "=" + item.nodeValue;
+    }
+    return arr;
+}
+```
+
+但是在 **IE7** 之前的浏览器可能会返回很多没有指定的属性，事实上只需要返回需要的其它没有显示的内在的不需要显示，通过 `specified` 属性检测，这个属性如果为 *true* ,要么是HTML中存在的，要么是 `setAttribute` ,`dataset` 设置的,要是不加这个属性在 **IE7** 下可以遍历出100多个属性。
+
+```js
+function printAttr(el){
+    var attrs = el.attributes,
+        len = attrs.length,
+        arr = Array(len);
+    for(var i=0;i<len;i++){
+        var item = attrs.item(i);
+        if(item.specified){
+        	arr[i] = item.nodeName + "=" + item.nodeValue;
+        };
+    }
+    return arr;
+}
+```
+
+
 
