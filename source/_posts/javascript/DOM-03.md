@@ -326,3 +326,19 @@ function printAttr(el){
 
 
 
+最后放一道题。给定一个DOM元素，创建一个能访问该元素所有子元素的函数，并且要将每个子元素传递给指定的回调函数。
+
+分析一下，如果DOM是body元素其实就是和`document.all` 通配符获取所有的标签节点一个意思。只是多了一条输出语句，其实为了找到某写元素去做一些事情，比如查找符合要求的元素、查找匹配的元素或者内容或者类名。思路从给定DOM元素开始，依次从自己到子元素遍历，再从子元素执行相同的操作，没错就是递归。相同的问题，不断的细化。
+
+```js
+function wark_dom(dom, callBack){
+    callback(dom);
+    var list = dom.children;
+    for (var i = 0; i < list.length; i++) {
+        wark_dom(list[i],callback); 
+    }
+}
+```
+
+
+
