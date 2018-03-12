@@ -1,8 +1,11 @@
 ---
 title: event target
-date: 2018-03-09 18:40:18
-tags: [js,event]
+tags:
+  - js
+  - event
 categories: Javascript
+abbrlink: 45278
+date: 2018-03-09 18:40:18
 ---
 
 ## 事件
