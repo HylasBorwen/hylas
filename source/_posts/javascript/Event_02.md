@@ -1,10 +1,11 @@
 ---
 title: Event
-date: 2018-03-12 13:45:54
 tags:
   - js
   - event
 categories: Javascript
+abbrlink: 57323
+date: 2018-03-12 13:45:54
 ---
 
 ## delegate 事件委托
