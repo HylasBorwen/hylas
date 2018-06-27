@@ -1,11 +1,12 @@
 ---
 title: vue
-date: 2018-06-15 14:56:30
 tags: Vue
 categories: Vue 探索与实践
+abbrlink: 24839
+date: 2018-06-15 14:56:30
 ---
 
-# Vue 基础1
+# Vue 初步认识
 
 特点
 
@@ -177,7 +178,7 @@ new Vue({
 
   watch与computed预先定义函数, 可以理解为预备队 两者都是在数据发生变化之后进行相应的处理, 会自动调用
 
-  watch中的配置可以在官网看到详细的说明,这里注意一点, 对象的检测配置使用 `hander` , 并且可以 `deep` 深度watch
+  watch中的配置可以在官网看到详细的说明  `hander` ,  `deep` , `immediate ` 
 
 * computed 计算属性 依赖其它的数据发生改变而调用, **计算属性是基于它们的依赖进行缓存的** ,只要依赖数据没有改变,访问数据都会立马返回原有数据, 如果使用普通的方法, 多次执行都会重新调用方法
 
@@ -195,7 +196,7 @@ new Vue({
 
 #### 条件渲染 与 列表渲染
 
-关于**v-show v-if** 官网解释 很详细了.
+关于**v-show,  v-if** 官网解释 很详细了.
 
 > `v-show` 的元素始终会被渲染并保留在 DOM 中。`v-show` 只是简单地切换元素的 CSS 属性 `display` 
 >
@@ -230,9 +231,29 @@ new Vue({
 </script>
 ```
 
-**v-for**
+**v-for **指令根据一组数组的选项列表进行渲染
 
+**v-bind** 动态的改变一些属性 `class` `src` `id`等, vue 语法风格简写 `:attr`  **bind**结合**filter**味道更好
 
+```html
+<!-- 单个class -->
+<div v-bind:class="{ active: isActive }"></div>
+
+<!-- 条件 -->
+<div v-bind:class="{'active' : count > 0}"></div>
+                                           
+<!-- 多个class -->
+<div v-bind:class="{ active: isActive, 'text-danger': hasError }"></div>
+
+<!-- 计算属性 -->
+<div v-bind:class="computedClass"></div>
+
+<!-- 三目运算 注意是数组 不习惯替换成计算属性 -->
+<div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
+
+<!-- src -->
+<img :src="data.icon">
+```
 
 
 
@@ -257,6 +278,5 @@ Vue的语法基本都是写在HTML上的, 内容发生了改变也会自动渲�
     /* css */
 </style>
 ```
-
 
 
