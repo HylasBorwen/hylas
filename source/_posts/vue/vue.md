@@ -277,4 +277,4 @@ new Vue({
 </style>
 ```
 
-
+最终渲染到页面其实还是html,css,js的页面
