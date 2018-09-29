@@ -1,5 +1,5 @@
 ---
-在title: Vue 生命周期
+title: Vue 生命周期
 date: 2018-09-29 11:26:19
 tags: Vue
 categories: Vue 探索与实践
@@ -109,7 +109,7 @@ export default {
 
 之间看结果从A→B切换需要传递数据
 
-![lifecycle](..\..\img\javascript\lifecycle2.png)
+![lifecycle](\img\javascript\lifecycle2.png)
 
 在A中的mounted中定义Bus.$emit传递数据在B中的created中接受，会发现根本接受不到数据，原因通过上边的图可以看到 **A在mounted中emit自定义事件的时候**， **B的created中Bus.$on的事件是没有被触发的**。打个比方你要去窃听别人说话的内容是要在别人说话前就把装置安装好还是说完了你再去安装！
 
