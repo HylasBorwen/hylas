@@ -6,8 +6,10 @@
     <div style="margin-left:10px">
     <br/>
     <p style="font-size: 10px;line-height: 30px;">
-        <a href="https://hylasborwen.github.io" ><i>Small Q~</i></a> by
-        <a href="https://hylasborwen.github.io" >小祺。</a><br/>
+        <a href="https://hylasborwen.github.io" >
+            <i>Small Q~</i>
+        </a>
+        <br/>
         <span style="color:#F834FA">你说你不学习，你还能干嘛。</span>
     </p>
 </div>

@@ -1,8 +1,9 @@
 ---
-在title: Vue 生命周期
-date: 2018-09-29 11:26:19
+title: Vue 生命周期
 tags: Vue
 categories: Vue 探索与实践
+abbrlink: 1
+date: 2018-09-29 11:26:19
 ---
 
 ## Vue 生命周期
@@ -109,7 +110,7 @@ export default {
 
 之间看结果从A→B切换需要传递数据
 
-![lifecycle](..\..\img\javascript\lifecycle2.png)
+![lifecycle](\img\javascript\lifecycle2.png)
 
 在A中的mounted中定义Bus.$emit传递数据在B中的created中接受，会发现根本接受不到数据，原因通过上边的图可以看到 **A在mounted中emit自定义事件的时候**， **B的created中Bus.$on的事件是没有被触发的**。打个比方你要去窃听别人说话的内容是要在别人说话前就把装置安装好还是说完了你再去安装！
 
@@ -121,13 +122,30 @@ export default {
 
 在小的数据传递中通常用Bus或者router都可以解决一些数据传递的问题，在上边说hook函数的时候提到了router的逻辑会在beforeCreate中去执行，也就是说在beforeCreate虽然获取不到data但是可以获取到router的params、query参数，这个自行测试。同样也是传递数据。
 
-上边的例子中通过子父组件、父父组件中使用Bus传递数据貌似完美解决了问题。其实不然，回到这句话**A在mounted中emit自定义事件的时候**， **B的created中Bus.$on的事件是没有被触发的**。但是当我们返回A组件（未刷新页面）在到B组件的时候发现B组件监听到了A的emit事件，反复会发现每次都会重复触发多次。这是因为 **Bus.$on并不会随着组件销毁而解除因为触发监听了所以第二次进入B的时候会触发。** 问题就是如何不让其重复的去监听emit。尤大在[issue ]([https://github.com/vuejs/vue/issues/3399](https://link.jianshu.com/?t=https://github.com/vuejs/vue/issues/3399) ) 给出了解决方式。在B组件beforeDestroy 或 destroyed中解除Bus.$off绑定的事件就不会重复触发了。
+上边的例子中通过子父组件、父父组件中使用Bus传递数据貌似完美解决了问题。其实不然，回到这句话**A在mounted中emit自定义事件的时候**， **B的created中Bus.$on的事件是没有被触发的**。但是当我们返回A组件（未刷新页面）在到B组件的时候发现B组件监听到了A的emit事件，反复会发现每次都会重复触发多次。这是因为 **Bus.$on并不会随着组件销毁而解除因为触发监听了所以第二次进入B的时候会触发。** 问题就是如何不让其重复的去监听emit。尤大在[issue ](https://github.com/vuejs/vue/issues/3399)给出了解决方式。在B组件beforeDestroy 或 destroyed中解除Bus.$off绑定的事件就不会重复触发了。
 
 引出一个问题：如果在多个页面都会触发同一个emit事件岂不是在每一个页面的销毁hook中都要写一段Bus.$off.其实在issue中尤大提出了一点通过mixin方式也可以。
 
 
 
 ### mixin
+
+介绍看官网详情[mixin ](https://cn.vuejs.org/v2/guide/mixins.html)即可，使用mixin的目的在于如果多个组件都会复用某个逻辑功能就可以在全局进行方法或hook的混入，但是需要注意的是混入对象的钩子将在组件自身钩子**之前**调用。data、props、methods合并策略与钩子函数不同。
+
+```js
+// 假设B、C页面都会接受A传递来的数据 通过Bus使用了解到，需要在组件销毁时注销监听
+const mixin = {
+    destoryed() {
+        // 需要接触的事件
+        Bus.$off('params')
+    }
+}
+new Vue({
+    mixins: [mixin]
+})
+```
+
+混入使用的好可以对代码的复用起到很好的帮助
 
 总结一下Vue生命周期
 
