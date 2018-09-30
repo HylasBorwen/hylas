@@ -150,4 +150,14 @@ new Vue({
 + Vue的生命周期函数就是在`new Vue()` 初始化以及数据更新过程中各个阶段执行的特定函数（钩子函数）
 + 在不同的生命周期函数中执行相对应的操作，在created获取data，在mounted访问DOM，destoryed销毁事件解除定时器等等操作。
 
-> 取乎其上，得乎其中；取乎其中，得乎其下；取乎其下，则无所得矣。
+取乎其上，得乎其中；取乎其中，得乎其下；取乎其下，则无所得矣。列出来几个问题。未来补充~
+
++ Vue生命周期
++ Vue如何实现双向绑定
++ 使用CSS Module，原理Vue中的使用
++ 开启CSS Module后怎么与第三方样式库
++ Vue的安装包版本，自定义构建工具的使用（vue-cli官方的，手动构建会碰到什么问题）
++ Vue-router 原理
++ webpack中 dev-server原理
++ webpack中loader实现，如何做任务管理（npm scripts）
+
