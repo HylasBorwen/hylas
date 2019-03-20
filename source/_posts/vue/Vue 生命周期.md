@@ -1,8 +1,9 @@
 ---
 title: Vue 生命周期
-date: 2018-09-29 11:26:19
 tags: Vue
 categories: Vue 探索与实践
+abbrlink: 57065
+date: 2018-09-29 11:26:19
 ---
 
 ## Vue 生命周期
