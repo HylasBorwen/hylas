@@ -7,9 +7,11 @@ abbrlink: 1442
 date: 2018-02-10 16:47:49
 ---
 
-> Date类型使用自UTC（Coordinated Universal Time，国际协调时间）。从1970.1.1 00:00:00开始
+![date](/img/javascript/Date.jpg)
 
 <!-- more -->
+
+> Date类型使用自UTC（Coordinated Universal Time，国际协调时间）。从1970.1.1 00:00:00开始
 
 # Date
 

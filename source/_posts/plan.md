@@ -1,9 +1,9 @@
 ---
 title: 计划
-date: 2019-03-18 11:00:28
 tags: plan
 categories: plan
-
+abbrlink: 22059
+date: 2019-03-18 11:00:28
 ---
 
 ## Plan
@@ -47,6 +47,7 @@ categories: plan
   - 缓存
 
 - Vue
+
   - vuex、vue-router
   - Vue新特性
   - Vue双向绑定
@@ -58,9 +59,11 @@ categories: plan
   - 结合Node API提高项目搭建效率
   - Babel
   - vue-cli3创建使用
+
 - 网络协议
   - 网络分层
   - TCP握手
+
 - python3
   - 语法
   - 常见操作

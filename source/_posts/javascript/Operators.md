@@ -7,6 +7,8 @@ date: 2018-01-04 20:09:44
 thumbnail: /img/javascript/Operators.jpg
 ---
 
+![操作符](/img/javascript/Operators.jpg)
+
 <!--more-->
 
 
@@ -163,7 +165,7 @@ console.log(8 >> 2); 	// 2  	00010 = 2^1*1 + 2^0*0
   console.log(6.19 | 0); // 6  因为二进制是没有小数的
   ```
 
-  ​
+  
 
 * 按位异或
 

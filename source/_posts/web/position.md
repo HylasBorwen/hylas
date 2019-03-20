@@ -149,7 +149,7 @@ thumbnail: http://htm5.oss-cn-beijing.aliyuncs.com/175576/1511886634890.jpg
 
 > 页面文档中的元素会按照一定的规则去显示。
 
-![层级顺序](http://on-img.com/chart_image/5857e077e4b04ce3879eca88.png)
+![层级顺序](/img/css/z-index.png)
 
 内容是页面的很重要的实体，因此层叠水平较高。
 
