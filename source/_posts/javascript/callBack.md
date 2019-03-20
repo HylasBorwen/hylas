@@ -9,9 +9,11 @@ date: 2018-02-07 16:36:52
 thumbnail: /img/javascript/callBack.jpg
 ---
 
-<!-- more -->
+![callback](/img/javascript/callBack.jpg)
 
 > callBack的存在在javascript中随处可见在没有 *promise* 的年代各种流行的框架随处可见包括原生DOM事件，jQuery中通过callBack可以做很多很多事情。
+
+<!-- more -->
 
 ## callBack?
 

@@ -7,6 +7,8 @@ date: 2018-02-08 14:27:55
 thumbnail: /img/javascript/package-class.jpg
 ---
 
+![type](/img/javascript/package-class.jpg)
+
 <!-- more -->
 
 > 为了便于操作，*javascript* 提供了三个基本包装类型。在使用中不需要声明再去调用不同的方法。

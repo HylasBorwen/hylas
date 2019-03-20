@@ -7,6 +7,8 @@ date: 2018-02-06 16:29:26
 thumbnail: /img/javascript/function.jpg
 ---
 
+![func](/img/javascript/function.jpg)
+
 <!-- more -->
 
 # Function

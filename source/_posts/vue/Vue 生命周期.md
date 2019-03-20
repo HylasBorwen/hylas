@@ -2,13 +2,15 @@
 title: Vue 生命周期
 tags: Vue
 categories: Vue 探索与实践
+<<<<<<< HEAD
 abbrlink: 57065
+=======
+abbrlink: 1
+>>>>>>> 374eb29298e853f4b0c8b3d2cebe8138a86fbe2f
 date: 2018-09-29 11:26:19
 ---
 
 ## Vue 生命周期
-
-**取乎其上，得乎其中；取乎其中，得乎其下；取乎其下，则无所得矣** 。
 
 又好久没有写总结了~本着一探究竟总结一下使用Vue过程中碰到的问题。
 
@@ -122,7 +124,7 @@ export default {
 
 在小的数据传递中通常用Bus或者router都可以解决一些数据传递的问题，在上边说hook函数的时候提到了router的逻辑会在beforeCreate中去执行，也就是说在beforeCreate虽然获取不到data但是可以获取到router的params、query参数，这个自行测试。同样也是传递数据。
 
-上边的例子中通过子父组件、父父组件中使用Bus传递数据貌似完美解决了问题。其实不然，回到这句话**A在mounted中emit自定义事件的时候**， **B的created中Bus.$on的事件是没有被触发的**。但是当我们返回A组件（未刷新页面）在到B组件的时候发现B组件监听到了A的emit事件，反复会发现每次都会重复触发多次。这是因为 **Bus.$on并不会随着组件销毁而解除因为触发监听了所以第二次进入B的时候会触发。** 问题就是如何不让其重复的去监听emit。尤大在[issue ]([https://github.com/vuejs/vue/issues/3399](https://link.jianshu.com/?t=https://github.com/vuejs/vue/issues/3399) ) 给出了解决方式。在B组件beforeDestroy 或 destroyed中解除Bus.$off绑定的事件就不会重复触发了。
+上边的例子中通过子父组件、父父组件中使用Bus传递数据貌似完美解决了问题。其实不然，回到这句话**A在mounted中emit自定义事件的时候**， **B的created中Bus.$on的事件是没有被触发的**。但是当我们返回A组件（未刷新页面）在到B组件的时候发现B组件监听到了A的emit事件，反复会发现每次都会重复触发多次。这是因为 **Bus.$on并不会随着组件销毁而解除因为触发监听了所以第二次进入B的时候会触发。** 问题就是如何不让其重复的去监听emit。尤大在[issue ](https://github.com/vuejs/vue/issues/3399)给出了解决方式。在B组件beforeDestroy 或 destroyed中解除Bus.$off绑定的事件就不会重复触发了。
 
 引出一个问题：如果在多个页面都会触发同一个emit事件岂不是在每一个页面的销毁hook中都要写一段Bus.$off.其实在issue中尤大提出了一点通过mixin方式也可以。
 
@@ -130,7 +132,36 @@ export default {
 
 ### mixin
 
+介绍看官网详情[mixin ](https://cn.vuejs.org/v2/guide/mixins.html)即可，使用mixin的目的在于如果多个组件都会复用某个逻辑功能就可以在全局进行方法或hook的混入，但是需要注意的是混入对象的钩子将在组件自身钩子**之前**调用。data、props、methods合并策略与钩子函数不同。
+
+```js
+// 假设B、C页面都会接受A传递来的数据 通过Bus使用了解到，需要在组件销毁时注销监听
+const mixin = {
+    destoryed() {
+        // 需要接触的事件
+        Bus.$off('params')
+    }
+}
+new Vue({
+    mixins: [mixin]
+})
+```
+
+混入使用的好可以对代码的复用起到很好的帮助
+
 总结一下Vue生命周期
 
 + Vue的生命周期函数就是在`new Vue()` 初始化以及数据更新过程中各个阶段执行的特定函数（钩子函数）
 + 在不同的生命周期函数中执行相对应的操作，在created获取data，在mounted访问DOM，destoryed销毁事件解除定时器等等操作。
+
+取乎其上，得乎其中；取乎其中，得乎其下；取乎其下，则无所得矣。列出来几个问题。未来补充~
+
++ Vue生命周期
++ Vue如何实现双向绑定
++ 使用CSS Module，原理Vue中的使用
++ 开启CSS Module后怎么与第三方样式库
++ Vue的安装包版本，自定义构建工具的使用（vue-cli官方的，手动构建会碰到什么问题）
++ Vue-router 原理
++ webpack中 dev-server原理
++ webpack中loader实现，如何做任务管理（npm scripts）
+
