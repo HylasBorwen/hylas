@@ -2,11 +2,7 @@
 title: Vue 生命周期
 tags: Vue
 categories: Vue 探索与实践
-<<<<<<< HEAD
 abbrlink: 57065
-=======
-abbrlink: 1
->>>>>>> 374eb29298e853f4b0c8b3d2cebe8138a86fbe2f
 date: 2018-09-29 11:26:19
 ---
 
