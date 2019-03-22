@@ -1,13 +1,10 @@
 ---
 title: npm script
-date: 2019-03-22 10:15:24
 tags: 前端工程化
 categories: 大前端
+abbrlink: 29376
+date: 2019-03-22 10:15:24
 ---
-
-## npm script
-
-
 
 ### npm init初始化
 
@@ -38,7 +35,7 @@ npm config set init.private true
 
 
 
-npm 钩子执行
+### npm 钩子执行
 
 举例来说，运行 npm run test 的时候，分 3 个阶段：
 
