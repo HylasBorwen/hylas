@@ -1,9 +1,10 @@
 ---
 title: Babel 折腾
-date: 2019-06-27 21:09:17
 tags: Babel
 categories: 大前端
-thumbnail: https://raw.githubusercontent.com/babel/logo/master/babel.png
+thumbnail: 'https://raw.githubusercontent.com/babel/logo/master/babel.png'
+abbrlink: 61906
+date: 2019-06-27 21:09:17
 ---
 
 ## Babel 
