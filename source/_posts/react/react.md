@@ -14,7 +14,7 @@ date: 2019-07-27 00:12:04
 
 ## JSX
 
-React是什么？官网解释React是声明式，组件化的视图框架。React生态包括了 `React Router` 、`redux` `react-thunk`、`react-saga`、`react-redux` 等等。其中JSX是React中最为标志性，代表性的内容
+React是什么？官网解释React是声明式，组件化的视图框架。React生态包括了 `React Router` 、`redux` `redux-thunk`、`redux-saga`、`react-redux` 等等。其中 `JSX` 是React中最为标志性，代表性的内容
 
 ```jsx
 class Button extends Component {
