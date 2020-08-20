@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+  (function(){
+    if(''){
+      if (prompt('请输入文章密码') !== ''){
+        alert('密码错误！');
+        history.back();
+      }
+    }
+  })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Vue," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Vue 生命周期又好久没有写总结了~本着一探究竟总结一下使用Vue过程中碰到的问题。 先放一张Vue官网的LifeCycle生命周期图  Vue每一个组件都有自己完整的生命周期，每一个钩子函数是什么含义先了解一下  beforeCreate 创建前：在Vue实例被创建时 init初始化 event事件，加载LiftCycle调用该函数，在这个生命周期函数中是无法获取到vm实例中的props与dat">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue 生命周期">
+<meta property="og:url" content="http://yoursite.com/Vue-探索与实践/vue/Vue 生命周期/index.html">
+<meta property="og:site_name" content="小祺">
+<meta property="og:description" content="Vue 生命周期又好久没有写总结了~本着一探究竟总结一下使用Vue过程中碰到的问题。 先放一张Vue官网的LifeCycle生命周期图  Vue每一个组件都有自己完整的生命周期，每一个钩子函数是什么含义先了解一下  beforeCreate 创建前：在Vue实例被创建时 init初始化 event事件，加载LiftCycle调用该函数，在这个生命周期函数中是无法获取到vm实例中的props与dat">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://cn.vuejs.org/images/lifecycle.png">
+<meta property="og:image" content="http://yoursite.com/img/javascript/lifecycle.png">
+<meta property="og:image" content="http://yoursite.com/img/javascript/lifecycle2.png">
+<meta property="og:updated_time" content="2020-08-20T16:06:54.387Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue 生命周期">
+<meta name="twitter:description" content="Vue 生命周期又好久没有写总结了~本着一探究竟总结一下使用Vue过程中碰到的问题。 先放一张Vue官网的LifeCycle生命周期图  Vue每一个组件都有自己完整的生命周期，每一个钩子函数是什么含义先了解一下  beforeCreate 创建前：在Vue实例被创建时 init初始化 event事件，加载LiftCycle调用该函数，在这个生命周期函数中是无法获取到vm实例中的props与dat">
+<meta name="twitter:image" content="https://cn.vuejs.org/images/lifecycle.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/Vue-探索与实践/vue/Vue 生命周期/"/>
+
+
+
+
+
+  <title>Vue 生命周期 | 小祺</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小祺</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Vue-探索与实践/vue/Vue 生命周期/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Small Q ~">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小祺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue 生命周期</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-29T11:26:19+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue-探索与实践/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue 探索与实践</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/Vue-探索与实践/vue/Vue 生命周期/" class="leancloud_visitors" data-flag-title="Vue 生命周期">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1,954&nbsp;字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  7&nbsp;min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Vue-生命周期"><a href="#Vue-生命周期" class="headerlink" title="Vue 生命周期"></a>Vue 生命周期</h2><p>又好久没有写总结了~本着一探究竟总结一下使用Vue过程中碰到的问题。</p>
+<p>先放一张Vue官网的LifeCycle生命周期图</p>
+<p><img src="https://cn.vuejs.org/images/lifecycle.png" alt="生命周期"></p>
+<p>Vue每一个组件都有自己完整的生命周期，每一个钩子函数是什么含义先了解一下</p>
+<ul>
+<li><p>beforeCreate</p>
+<p>创建前：在Vue实例被创建时 init初始化 event事件，加载LiftCycle调用该函数，在这个生命周期函数中是无法获取到vm实例中的props与data的</p>
+</li>
+<li><p>created</p>
+<p>创建后：在beforeCreate与created之间会执行一些函数injections 与 reactivity 、initState动作会将vm中的props与data进行绑定，其中的细节可以不用去考虑，需要理解的是在这两个hook之间发生了什么事情，也就是说这两个hook区别就在于 不要在 <em>beforeCreate</em>  中去修改data数据因为访问不到。但是有一点在<em>beforeCreate</em> 这个hook在执行的过程中会有 vue-router、vuex的逻辑这个等下解释</p>
+</li>
+<li><p>beforeMount</p>
+<p>挂载前：初始化完成动作结束，需要将render渲染的VDOM挂载到 <code>vm.el</code> 对象上，从上边的图可以看的到在beforeMount动作之前会去检测是否传入了 el、template而执行相对应的操作以及会选择编译模式执行不同的渲染方式。<br><strong>Runtime Only</strong> 与 <strong>Runtime+Compiler</strong> 什么区别呢？简单来说前者是会通过vue-loader将 <code>.vue</code> 文件编译成为一个对象把其中的template标签编译为render函数，后者new Vue中传入template参数，vue2都是最终通过render函数去渲染，效率可能没有前者快。但是这个编译方式就是完整版的如果没有特殊要求通常使用前者就好。</p>
+</li>
+<li><p>mounted</p>
+<p>挂载后：这时是 <strong>可以访问到DOM对象</strong>，数据的改变也会触发响应的更新hook函数。</p>
+</li>
+<li><p>beforeUpdate 更新前</p>
+</li>
+<li><p>updated 更新后</p>
+</li>
+<li><p>beforeDestroy 销毁前</p>
+</li>
+<li><p>destroyed 销毁后</p>
+</li>
+</ul>
+<p><em>tips</em>：需要注意的一点是VDOM的变化都是异步所以如果有些操作需要在挂载之前就完成的通常会在created中执行，例如通过$ref获取的节点但是执行了相应的操作却没有生效。记得加 <code>$nextTick</code> 在VDOM构建完成之后执行。</p>
+<p>Vue的每一个组件都具有完整的生命周期，组件与组件之间的数据操作，传递，响应就要看清楚应该在什么阶段去执行了。组件的之间的关系无非就是子父组件，父父组件。</p>
+<blockquote>
+<p>在做项目的过程中并未使用vuex（不是很大，没必要），通过Bus, router去操作一些数据的传递发现了一些问题</p>
+</blockquote>
+<h3 id="子父组件与父父组件生命周期对比"><a href="#子父组件与父父组件生命周期对比" class="headerlink" title="子父组件与父父组件生命周期对比"></a>子父组件与父父组件生命周期对比</h3><p>子父组件</p>
+<p>在beforeMount与mounted之间会执行render，也就是说子组件做为父组件一部分会在这个阶段完成自己的声明周期过程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;child&gt;&lt;/child&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import child from &apos;./B&apos;</span><br><span class="line">import &#123;group&#125; from &apos;@/common/config/log&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;A&apos;,</span><br><span class="line">  beforeCreate() &#123;</span><br><span class="line">    group(&apos;red&apos;, &apos;beforeCreate 创建 A&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  created() &#123;</span><br><span class="line">    group(&apos;red&apos;, &apos;created 创建完成 A&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeMount() &#123;</span><br><span class="line">    group(&apos;red&apos;, &apos;beforeMount 挂载状态 A&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    group(&apos;red&apos;, &apos;mounted 挂载完成 A&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeUpdate() &#123;</span><br><span class="line">    group(&apos;red&apos;, &apos;beforeUpdate 更新状态 A&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  updated() &#123;</span><br><span class="line">    group(&apos;red&apos;, &apos;beforeUpdate 更新完成 A&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeDestroy() &#123;</span><br><span class="line">    group(&apos;red&apos;, &apos;beforeUpdate 销毁状态 A&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  destroyed() &#123;</span><br><span class="line">    group(&apos;red&apos;, &apos;beforeUpdate 销毁 A&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  components:&#123;</span><br><span class="line">    child</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>子组件与父组件的代码一样不贴了，看效果</p>
+<p><img src="\img\javascript\lifecycle.png" alt="lifecycle"></p>
+<p>可以看到子组件的生命周期在父组件的beforeMount与mounted之间触发。在子父组件通信方式有很多通过Bus的方式，例如子组件在 created 或 mounted中 emit一个事件传递数据，父组件在创建与挂载的hook中都是可以监听到子组件传递的数据，监听始终都会在emit之前触发。只不过有一个小问题（重复绑定）稍后说。</p>
+<p>父父组件</p>
+<p>之间看结果从A→B切换需要传递数据</p>
+<p><img src="\img\javascript\lifecycle2.png" alt="lifecycle"></p>
+<p>在A中的mounted中定义Bus.$emit传递数据在B中的created中接受，会发现根本接受不到数据，原因通过上边的图可以看到 <strong>A在mounted中emit自定义事件的时候</strong>， <strong>B的created中Bus.$on的事件是没有被触发的</strong>。打个比方你要去窃听别人说话的内容是要在别人说话前就把装置安装好还是说完了你再去安装！</p>
+<p>解决方案：可以发现组件A的destroyed过程是在组件B的created之后触发的也就是A组件emit的数据应该放到销毁的hook中，而在B组件中在created中去监听传递的数据。mounted阶段也不行因为同样A已经销毁了。</p>
+<h3 id="Bus的坑"><a href="#Bus的坑" class="headerlink" title="Bus的坑"></a>Bus的坑</h3><p>在小的数据传递中通常用Bus或者router都可以解决一些数据传递的问题，在上边说hook函数的时候提到了router的逻辑会在beforeCreate中去执行，也就是说在beforeCreate虽然获取不到data但是可以获取到router的params、query参数，这个自行测试。同样也是传递数据。</p>
+<p>上边的例子中通过子父组件、父父组件中使用Bus传递数据貌似完美解决了问题。其实不然，回到这句话<strong>A在mounted中emit自定义事件的时候</strong>， <strong>B的created中Bus.$on的事件是没有被触发的</strong>。但是当我们返回A组件（未刷新页面）在到B组件的时候发现B组件监听到了A的emit事件，反复会发现每次都会重复触发多次。这是因为 <strong>Bus.$on并不会随着组件销毁而解除因为触发监听了所以第二次进入B的时候会触发。</strong> 问题就是如何不让其重复的去监听emit。尤大在<a href="https://github.com/vuejs/vue/issues/3399" target="_blank" rel="external">issue </a>给出了解决方式。在B组件beforeDestroy 或 destroyed中解除Bus.$off绑定的事件就不会重复触发了。</p>
+<p>引出一个问题：如果在多个页面都会触发同一个emit事件岂不是在每一个页面的销毁hook中都要写一段Bus.$off.其实在issue中尤大提出了一点通过mixin方式也可以。</p>
+<h3 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h3><p>介绍看官网详情<a href="https://cn.vuejs.org/v2/guide/mixins.html" target="_blank" rel="external">mixin </a>即可，使用mixin的目的在于如果多个组件都会复用某个逻辑功能就可以在全局进行方法或hook的混入，但是需要注意的是混入对象的钩子将在组件自身钩子<strong>之前</strong>调用。data、props、methods合并策略与钩子函数不同。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设B、C页面都会接受A传递来的数据 通过Bus使用了解到，需要在组件销毁时注销监听</span></span><br><span class="line"><span class="keyword">const</span> mixin = &#123;</span><br><span class="line">    destoryed() &#123;</span><br><span class="line">        <span class="comment">// 需要接触的事件</span></span><br><span class="line">        Bus.$off(<span class="string">'params'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    mixins: [mixin]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>混入使用的好可以对代码的复用起到很好的帮助</p>
+<p>总结一下Vue生命周期</p>
+<ul>
+<li>Vue的生命周期函数就是在<code>new Vue()</code> 初始化以及数据更新过程中各个阶段执行的特定函数（钩子函数）</li>
+<li>在不同的生命周期函数中执行相对应的操作，在created获取data，在mounted访问DOM，destoryed销毁事件解除定时器等等操作。</li>
+</ul>
+<p>取乎其上，得乎其中；取乎其中，得乎其下；取乎其下，则无所得矣。列出来几个问题。未来补充~</p>
+<ul>
+<li>Vue生命周期</li>
+<li>Vue如何实现双向绑定</li>
+<li>使用CSS Module，原理Vue中的使用</li>
+<li>开启CSS Module后怎么与第三方样式库</li>
+<li>Vue的安装包版本，自定义构建工具的使用（vue-cli官方的，手动构建会碰到什么问题）</li>
+<li>Vue-router 原理</li>
+<li>webpack中 dev-server原理</li>
+<li>webpack中loader实现，如何做任务管理（npm scripts）</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+<br/>
+<div class="post-copy">
+    <div style="margin-left:10px">
+    <br/>
+    <p style="font-size: 10px;line-height: 30px;">
+        <a href="https://hylasborwen.github.io" >
+            <i>Small Q~</i>
+        </a>
+        <br/>
+        <span style="color:#F834FA">你说你不学习，你还能干嘛。</span>
+    </p>
+</div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Vue-探索与实践/vue/组件通信/" rel="next" title="组件通信">
+                <i class="fa fa-chevron-left"></i> 组件通信
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Vue-探索与实践/vue/实现MVVM/" rel="prev" title="实现MVVM">
+                实现MVVM <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzkyMC8xNDQ1MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Small Q ~" />
+            
+              <p class="site-author-name" itemprop="name">Small Q ~</p>
+              <p class="site-description motion-element" itemprop="description">谦虚的卓越着</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zBorwen" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://mail.qq.com/" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-生命周期"><span class="nav-number">1.</span> <span class="nav-text">Vue 生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#子父组件与父父组件生命周期对比"><span class="nav-number">1.1.</span> <span class="nav-text">子父组件与父父组件生命周期对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bus的坑"><span class="nav-number">1.2.</span> <span class="nav-text">Bus的坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mixin"><span class="nav-number">1.3.</span> <span class="nav-text">mixin</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Small Q ~</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">56.9k字</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://hylasborwen.github.io">小祺</a><span class="post-meta-divider">|</span> <span id="busuanzi_container_site_uv">
+  Total visited&nbsp;<span id="busuanzi_value_site_uv"></span>&nbsp;times
+</span> </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+
+
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("l8WGuspt3KwjnR8MRd9OD7cB-gzGzoHsz", "EKLio9rLppwFqQDtawi78vLN");</script>
+<script>
+function showTime(Counter) {
+    var query = new AV.Query(Counter);
+    $(".leancloud_visitors").each(function() {
+        var url = $(this).attr("id").trim();
+        query.equalTo("url", url);
+        query.find({
+            success: function(results) {
+                if (results.length == 0) {
+                    var content = '0 ' + $(document.getElementById(url)).text();
+                    $(document.getElementById(url)).text(content);
+                    return;
+                }
+                for (var i = 0; i < results.length; i++) {
+                    var object = results[i];
+                    var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                    $(document.getElementById(url)).text(content);
+                }
+            },
+            error: function(object, error) {
+                console.log("Error: " + error.code + " " + error.message);
+            }
+        });
+
+    });
+}
+
+function addCount(Counter) {
+    var Counter = AV.Object.extend("Counter");
+    url = $(".leancloud_visitors").attr('id').trim();
+    title = $(".leancloud_visitors").attr('data-flag-title').trim();
+    var query = new AV.Query(Counter);
+    query.equalTo("url", url);
+    query.find({
+        success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment("time");
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+                var newcounter = new Counter();
+                newcounter.set("title", title);
+                newcounter.set("url", url);
+                newcounter.set("time", 1);
+                newcounter.save(null, {
+                    success: function(newcounter) {
+                        console.log("newcounter.get('time')="+newcounter.get('time'));
+                        var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(newcounter, error) {
+                        console.log('Failed to create');
+                    }
+                });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + " " + error.message);
+        }
+    });
+}
+
+    var Counter = AV.Object.extend("Counter");
+    if (document.querySelector('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+    }
+
+</script>
+  
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("l8WGuspt3KwjnR8MRd9OD7cB-gzGzoHsz", "EKLio9rLppwFqQDtawi78vLN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+
+
+</body>
+</html>
